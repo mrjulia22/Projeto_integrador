@@ -32,6 +32,54 @@ public class ProdutosModel {
 	private String fotoProduto;
 	
 	@NotBlank(message= "Esse campo é obrigatório!")
-	private int estoqueProduto;	
+	private int estoqueProduto;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+
+	public String getDescricaoProduto() {
+		return descricaoProduto;
+	}
+
+	public void setDescricaoProduto(String descricaoProduto) {
+		this.descricaoProduto = descricaoProduto;
+	}
+
+	public float getValorProduto() {
+		return valorProduto;
+	}
+
+	public void setValorProduto(float valorProduto) {
+		this.valorProduto = valorProduto;
+	}
+
+	public String getFotoProduto() {
+		return fotoProduto;
+	}
+
+	public void setFotoProduto(String fotoProduto) {
+		this.fotoProduto = fotoProduto;
+	}
+
+	public int getEstoqueProduto() {
+		return estoqueProduto;
+	}
+
+	public void setEstoqueProduto(int estoqueProduto) {
+		this.estoqueProduto = estoqueProduto;
+	}	
 
 }
