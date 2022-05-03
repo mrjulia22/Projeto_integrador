@@ -1,4 +1,4 @@
-# PROJETO MANGROVE - TURMA 51 @GENERATIONBRASIL
+# PROJETO MANGROVE - T51 @GENERATIONBRASIL
 
 </p>
 	Projeto integrador desenvolvido como atividade de conclusão do bootcamp <a href="https://brazil.generation.org/"> Generation Brasil</a> 2022.1.
