@@ -4,9 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name= "tb_produtos")
@@ -33,6 +37,16 @@ public class ProdutosModel {
 	
 	@NotBlank(message= "Esse campo é obrigatório!")
 	private int estoqueProduto;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_categorias")
+	@JsonIgnoreProperties("produtos")
+	private CategoriaModel categoriaDoProduto;
+	
+	@ManyToOne
+	@JoinColumn(name = "fk_usuarios")
+	@JsonIgnoreProperties("meusProdutos")
+	private UsuariosModel usuario;
 
 	public Long getId() {
 		return id;
