@@ -1,13 +1,19 @@
 package org.generation.Mangrove.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tb_usuarios")
@@ -27,7 +33,7 @@ public class UsuariosModel {
     private String emailUsuario;
     
     @NotBlank(message= "Esse campo é obrigatório!" )
-    @Size(max=255)
+    @Size(min=8,max=100)
     private String passwordUsuario;
     
     @Size(max=255)
@@ -39,6 +45,10 @@ public class UsuariosModel {
     @NotBlank(message= "Esse campo é obrigatório!" )
     @Size(max=255)
     private String tipoUsuario;
+    
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("usuario")
+    private List<ProdutosModel> meusProdutos;
 
 	public Long getId() {
 		return id;
