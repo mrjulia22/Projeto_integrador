@@ -48,6 +48,22 @@ public class ProdutosModel {
 	@JsonIgnoreProperties("meusProdutos")
 	private UsuariosModel usuario;
 
+	public CategoriaModel getCategoriaDoProduto() {
+		return categoriaDoProduto;
+	}
+
+	public void setCategoriaDoProduto(CategoriaModel categoriaDoProduto) {
+		this.categoriaDoProduto = categoriaDoProduto;
+	}
+
+	public UsuariosModel getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuariosModel usuario) {
+		this.usuario = usuario;
+	}
+
 	public Long getId() {
 		return id;
 	}
