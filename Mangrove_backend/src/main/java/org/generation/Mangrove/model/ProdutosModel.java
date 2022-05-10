@@ -1,5 +1,7 @@
 package org.generation.Mangrove.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,8 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -29,14 +34,17 @@ public class ProdutosModel {
 	private String descricaoProduto;
 	
 	@NotBlank(message= "Esse campo é obrigatório!")
-	private float valorProduto;
-	
-	@NotBlank(message= "Esse campo é obrigatório!")
 	@Size(max=1000)
 	private String fotoProduto;
 	
-	@NotBlank(message= "Esse campo é obrigatório!")
-	private int estoqueProduto;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
+	@Positive(message = "Digite um valor maior do que zero")
+	@NotNull
+	private BigDecimal valorProduto;
+	
+	@NotNull
+	private Integer estoqueProduto;
 	
 	@ManyToOne
 	@JoinColumn(name = "fk_categorias")
@@ -47,6 +55,22 @@ public class ProdutosModel {
 	@JoinColumn(name = "fk_usuarios")
 	@JsonIgnoreProperties("meusProdutos")
 	private UsuariosModel usuario;
+	
+	public Integer getEstoqueProduto() {
+		return estoqueProduto;
+	}
+
+	public void setEstoqueProduto(Integer estoqueProduto) {
+		this.estoqueProduto = estoqueProduto;
+	}
+
+	public BigDecimal getValorProduto() {
+		return valorProduto;
+	}
+
+	public void setValorProduto(BigDecimal valorProduto) {
+		this.valorProduto = valorProduto;
+	}
 
 	public CategoriaModel getCategoriaDoProduto() {
 		return categoriaDoProduto;
@@ -88,14 +112,6 @@ public class ProdutosModel {
 		this.descricaoProduto = descricaoProduto;
 	}
 
-	public float getValorProduto() {
-		return valorProduto;
-	}
-
-	public void setValorProduto(float valorProduto) {
-		this.valorProduto = valorProduto;
-	}
-
 	public String getFotoProduto() {
 		return fotoProduto;
 	}
@@ -104,12 +120,5 @@ public class ProdutosModel {
 		this.fotoProduto = fotoProduto;
 	}
 
-	public int getEstoqueProduto() {
-		return estoqueProduto;
-	}
-
-	public void setEstoqueProduto(int estoqueProduto) {
-		this.estoqueProduto = estoqueProduto;
-	}	
 
 }
