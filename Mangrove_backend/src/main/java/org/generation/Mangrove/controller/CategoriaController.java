@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/Categorias")
+@RequestMapping("/categorias")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CategoriaController {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<CategoriaModel>> getAll() {
 		return ResponseEntity.ok(categoriaRepository.findAll());
 	}
@@ -40,18 +40,18 @@ public class CategoriaController {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
 	}
 
-	@GetMapping("/nome/{nome}")
+	@GetMapping("/nome/{nomeCategoria}")
 	public ResponseEntity<List<CategoriaModel>> getByTitulo(@PathVariable String nomeCategoria) {
 		return ResponseEntity.ok(categoriaRepository.findAllByNomeCategoriaContainingIgnoreCase(nomeCategoria));
 
 	}
 
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<CategoriaModel> post(@Valid @RequestBody CategoriaModel categoria) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categoria));
 	}
 
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<CategoriaModel> put(@Valid @RequestBody CategoriaModel categoria) {
 		return categoriaRepository.findById(categoria.getId())
 				.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(categoriaRepository.save(categoria)))

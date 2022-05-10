@@ -22,14 +22,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping ("/Usuarios")
+@RequestMapping ("/usuarios")
 @CrossOrigin ( origins = " * ", allowedHeaders = " * ")
 public class UsuariosController {
 
 	@Autowired
 	private UsuariosRepository usuariosRepository;
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<UsuariosModel>> getAll(){
 		return ResponseEntity.ok(usuariosRepository.findAll());
 	}
@@ -40,17 +40,17 @@ public class UsuariosController {
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build()) ;
 	}
 	
-	@GetMapping ("/nome/{nome}")
-	public ResponseEntity<List<UsuariosModel>> getByName (@PathVariable String nome){
-		return ResponseEntity.ok(usuariosRepository.findAllByNomeUsuarioContainingIgnoreCase(nome));
+	@GetMapping ("/nome/{nomeUsuario}")
+	public ResponseEntity<List<UsuariosModel>> getByName (@PathVariable String nomeUsuario){
+		return ResponseEntity.ok(usuariosRepository.findAllByNomeUsuarioContainingIgnoreCase(nomeUsuario));
 	}
 	  
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<UsuariosModel> post(@Valid @RequestBody UsuariosModel usuariosModel) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuariosRepository.save(usuariosModel));
 	}
 
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<UsuariosModel> put(@Valid @RequestBody UsuariosModel usuariosModel) {
 		return usuariosRepository.findById(usuariosModel.getId())
 				.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(usuariosRepository.save(usuariosModel)))
