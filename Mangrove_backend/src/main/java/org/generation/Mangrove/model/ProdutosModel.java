@@ -35,8 +35,7 @@ public class ProdutosModel {
 	
 	@NotBlank(message= "Esse campo é obrigatório!")
 	@Size(max=1000)
-	private String fotoProduto;
-	
+	private String fotoProduto;	
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING)
 	@Positive(message = "Digite um valor maior do que zero")
@@ -49,11 +48,11 @@ public class ProdutosModel {
 	@ManyToOne
 	@JoinColumn(name = "fk_categorias")
 	@JsonIgnoreProperties("produtos")
-	private CategoriaModel categoriaDoProduto;
+	private CategoriaModel categoria;
 	
 	@ManyToOne
 	@JoinColumn(name = "fk_usuarios")
-	@JsonIgnoreProperties("meusProdutos")
+	@JsonIgnoreProperties("produtos")
 	private UsuariosModel usuario;
 	
 	public Integer getEstoqueProduto() {
@@ -72,12 +71,12 @@ public class ProdutosModel {
 		this.valorProduto = valorProduto;
 	}
 
-	public CategoriaModel getCategoriaDoProduto() {
-		return categoriaDoProduto;
+	public CategoriaModel getCategoria() {
+		return categoria;
 	}
 
 	public void setCategoriaDoProduto(CategoriaModel categoriaDoProduto) {
-		this.categoriaDoProduto = categoriaDoProduto;
+		this.categoria = categoriaDoProduto;
 	}
 
 	public UsuariosModel getUsuario() {

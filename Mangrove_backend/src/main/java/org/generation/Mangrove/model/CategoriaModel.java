@@ -26,8 +26,8 @@ public class CategoriaModel {
 	@Size(max=255)
 	private String nomeCategoria;
 	
-	@OneToMany(mappedBy = "categoriaDoProduto", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("categoriaDoProduto")
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("categoria")
 	private List<ProdutosModel> produtos;
 
 	public Long getId() {
@@ -44,6 +44,14 @@ public class CategoriaModel {
 
 	public void setNomeCategoria(String nomeCategoria) {
 		this.nomeCategoria = nomeCategoria;
+	}
+
+	public List<ProdutosModel> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<ProdutosModel> produtos) {
+		this.produtos = produtos;
 	}
 	
 }
