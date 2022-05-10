@@ -44,22 +44,22 @@ public class ProdutosController {
 				.map (resposta-> ResponseEntity.ok(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND ).build());
 	}
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<ProdutosModel>> getByTitulo(@PathVariable String nome){
-		return ResponseEntity.ok(produtosRepository.findAllByNomeProdutoContainingIgnoreCase(nome));
+	@GetMapping("/nome/{nomeProduto}")
+	public ResponseEntity<List<ProdutosModel>> getByTitulo(@PathVariable String nomeProduto){
+		return ResponseEntity.ok(produtosRepository.findAllByNomeProdutoContainingIgnoreCase(nomeProduto));
 		
 	}
-	 @PostMapping 
+	 @PostMapping("/cadastrar")
 	    public ResponseEntity<ProdutosModel> post (@Valid @RequestBody ProdutosModel produto ){
-		   if (categoriaRepository.existsById(produto.getCategoriaDoProduto().getId()))
+		   if (categoriaRepository.existsById(produto.getCategoria().getId()))
 		    return ResponseEntity.status(HttpStatus.CREATED).body (produtosRepository.save(produto));
 		    return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	
 	 }
-	 @PutMapping
+	 @PutMapping("/atualizar")
 	   public ResponseEntity<ProdutosModel> put(@Valid @RequestBody ProdutosModel produto) {
 	       if (produtosRepository.existsById(produto.getId())) {
-	           if (categoriaRepository.existsById(produto.getCategoriaDoProduto().getId()))
+	           if (categoriaRepository.existsById(produto.getCategoria().getId()))
 	               return ResponseEntity.status(HttpStatus.OK).body(produtosRepository.save(produto));
 	           return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	     }
