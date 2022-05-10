@@ -24,7 +24,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 @RestController
-@RequestMapping ("/Produtos")
+@RequestMapping ("/produtos")
 @CrossOrigin (origins = "*", allowedHeaders = "*")
 public class ProdutosController {
 	
@@ -34,7 +34,7 @@ public class ProdutosController {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<ProdutosModel>> getAll(){
 		return ResponseEntity.ok(produtosRepository.findAll());
 	}
