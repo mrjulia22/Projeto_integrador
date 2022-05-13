@@ -13,6 +13,8 @@ public class UsuariosLogin {
 	private String fotoUsuario;
 	    
 	private String descricaoUsuario;
+	
+	private String tipoUsuario;
 	 
 	private String token;
 
@@ -63,6 +65,14 @@ public class UsuariosLogin {
 	public void setDescricaoUsuario(String descricaoUsuario) {
 		this.descricaoUsuario = descricaoUsuario;
 	}
+	
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
 
 	public String getToken() {
 		return token;
@@ -71,5 +81,4 @@ public class UsuariosLogin {
 	public void setToken(String token) {
 		this.token = token;
 	}
-
 }
