@@ -22,7 +22,7 @@ public class UsuarioService {
 	   
 	   public Optional<UsuariosModel> cadastrarUsuario(UsuariosModel usuario){
 		   
-		    if(usuariosRepository.findByUsuario(usuario.getEmailUsuario()).isPresent())
+		    if(usuariosRepository.findByEmailUsuario(usuario.getEmailUsuario()).isPresent())
 		    	return Optional.empty();
 		   
 		   usuario.setPasswordUsuario(criptografarSenha(usuario.getPasswordUsuario()));
@@ -34,27 +34,24 @@ public class UsuarioService {
 	    public Optional<UsuariosModel> atualizarUsuario(UsuariosModel usuario){
 	    	
 	    	if(usuariosRepository.findById(usuario.getId()).isPresent()) {
-	    		Optional<UsuariosModel> buscaUsuario = usuariosRepository.findByUsuario(usuario.getEmailUsuario());
+	    		Optional<UsuariosModel> buscaUsuario = usuariosRepository.findByEmailUsuario(usuario.getEmailUsuario());
 	    		
 	    		
 	    		if((buscaUsuario.isPresent()) && (buscaUsuario.get().getId() != usuario.getId()))
 	    			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Usuário já existe",null); 
 	    	         
 	            usuario.setPasswordUsuario(criptografarSenha(usuario.getPasswordUsuario()));
-	   		    return Optional.of(usuariosRepository.save(usuario));
+	   		    return Optional.ofNullable(usuariosRepository.save(usuario));
 	   	
 	    	}
 	    	
-	    	
 	    	return Optional.empty();
-	    
 	    		
 	    }
 	    
-	    
 	    public Optional<UsuariosLogin> autenticarUsuario(Optional<UsuariosLogin> usuarioLogin) {
 
-			Optional<UsuariosModel> usuario = usuariosRepository.findByUsuario(usuarioLogin.get().getEmailUsuario());
+			Optional<UsuariosModel> usuario = usuariosRepository.findByEmailUsuario(usuarioLogin.get().getEmailUsuario());
 			
 			    if (usuario.isPresent()) {
 
@@ -63,11 +60,12 @@ public class UsuarioService {
 			    	    usuarioLogin.get().setId(usuario.get().getId());
 						usuarioLogin.get().setNomeUsuario(usuario.get().getNomeUsuario());
 						usuarioLogin.get().setFotoUsuario(usuario.get().getFotoUsuario());
+						usuarioLogin.get().setDescricaoUsuario(usuario.get().getDescricaoUsuario());
+						usuarioLogin.get().setTipoUsuario(usuario.get().getTipoUsuario());
 						usuarioLogin.get().setToken(gerarBasicToken(usuarioLogin.get().getEmailUsuario(), usuarioLogin.get().getPasswordUsuario()));
 						usuarioLogin.get().setPasswordUsuario(usuario.get().getPasswordUsuario());
 				
 					return  usuarioLogin ;
-
 				}
 			}	
 			
@@ -86,7 +84,6 @@ public class UsuarioService {
 			   BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 			
 			   return encoder.matches(senhaDigitada, senhaBanco);
-
 		}
 
 		    private String gerarBasicToken(String usuario, String senha) {
@@ -95,7 +92,5 @@ public class UsuarioService {
 				byte[] tokenBase64 = Base64.encodeBase64(token.getBytes(Charset.forName("US-ASCII")));
 				return "Basic " + new String(tokenBase64);
 
-		}
-	
-	
+		}	
 }
