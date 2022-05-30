@@ -6,7 +6,7 @@
 
 ### O que é o Projeto MANGROVE?
 
-O projeto MANGROVE se trata de um e-commerce e tem como objetivo atuar como um impacto positivo de acordo com a<a href="https://www.ipea.gov.br/ods/ods10.html"> ODS #10</a>, objetivo dedicado a redução a desigualdade dentro dos países e entre eles. Sendo assim, a MANGROVE terá como atividade principal o comércio de pescados e souvenirs diversos sob a intenção de reverter seus valores e direcioná-los à rede de pescadores artesanais e suas famílias. 
+E-commerce voltado para a comercialização de pescados (peixes, ostras, etc) e souvenirs (camisas, bottons, chaveiros, etc). O objetivo da aplicação é potencializar o lucro dos pescadores e pescadoras artesanais que se encontram marginalizados socialmente e muitas vezes não conseguem clientela suficiente para vender seus pescados.
 
 ### Tecnologias utilizadas no projeto
 
