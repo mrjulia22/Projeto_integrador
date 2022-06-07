@@ -75,8 +75,8 @@ public class ProdutosModel {
 		return categoria;
 	}
 
-	public void setCategoriaDoProduto(CategoriaModel categoriaDoProduto) {
-		this.categoria = categoriaDoProduto;
+	public void setCategoria(CategoriaModel categoria) {
+		this.categoria = categoria;
 	}
 
 	public UsuariosModel getUsuario() {
