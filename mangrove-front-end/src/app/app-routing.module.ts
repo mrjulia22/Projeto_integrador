@@ -7,12 +7,10 @@ import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'home', pathMatch:'full'},
+  {path:'',redirectTo:'entrar', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'entrar',component:EntrarComponent},
-  {path:'cadastrar',component:CadastrarComponent},
-  {path:'menu',component:MenuComponent},
-  {path:'rodape',component:RodapeComponent}
+  {path:'cadastrar',component:CadastrarComponent}
 ];
 
 @NgModule({
