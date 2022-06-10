@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
       //alert("Sessão encerrada! Faça login novamente.")
       this.router.navigate(["/entrar"])
     }
+    this.authService.refreshToken()
     this.findAllCategorias()
     this.findAllProdutos()
     //this.authService.refreshToken() 
@@ -58,13 +59,8 @@ findAllProdutos(){
   })
 }
 
-publicar(){
-  this.categoria.id = this.idCategoria
+cadastrar(){
   this.produto.categoria = this.categoria
-
-  this.usuario.id = this.idUsuario
-  this.produto.usuario = this.usuario
-
   this.produtoService.postProdutos(this.produto).subscribe((resp: ProdutosModel)=>{
     this.produto = resp
     alert('Produto cadastrado com sucesso!')

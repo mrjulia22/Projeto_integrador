@@ -52,26 +52,37 @@
       <div class="modal-body">
         
         <div class="form-group">
-          <label for="titulo">Nome</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o título">
-        </div>
+          <label for="titulo">Titulo</label>
+          <input type="text" [(ngModel)]="produto.nomeProduto" class="form-control" id="titulo" placeholder="Digite o título">
+      </div>
+      <div class="form-group">
+      <label for="texto">Texto</label>
+      <textarea type="text" class="form-control" [(ngModel)]="produto.descricaoProduto" name="texto" id="texto" placeholder="Digite o texto entre 5-1000 caracteres" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+      <label for="fotoProduto">Foto do produto</label>
+      <input type="text" [(ngModel)]="produto.fotoProduto" class="form-control" id="fotoProduto" placeholder="Insira o link da foto">
+  </div>
+  <div class="form-group">
+      <label for="valorProduto">Valor do produto</label>
+      <input type="number" [(ngModel)]="produto.valorProduto" class="form-control" id="valorProduto" placeholder="Digite o preço">
+  </div>
+  <div class="form-group">
+      <label for="estoqueProduto">Estoque do produto</label>
+      <input type="number" [(ngModel)]="produto.estoqueProduto" class="form-control" id="estoqueProduto" placeholder="Quantidade disponível">
+  </div>
 
-        <div class="form-group">
-          <label for="texto">Descrição</label>
-          <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="texto">Escolha uma categoria ou <a data-dismiss="modal" routerLink="/categoria">cadastre uma nova</a></label>
-          <select class="form-control" name="tema" id="tema" >
-              <option value="">Categoria</option>
-          </select>
-        </div>
+  <div class="form-group">
+      <label for="texto">Escolha uma Categoria ou <a routerLink="/tema" data-dismiss="modal">cadastre uma nova</a>:</label>
+      <select class="form-control" name="categoria" id="categoria" [(ngModel)]="idCategoria" (change)="findByIdCategorias()">
+             <option *ngFor="let categoria of listaCategorias" value="{{categoria.nomeCategoria}}">{{categoria.nomeCategoria}}</option>
+      </select>
+  </div>
       
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success">Publicar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" >Cancelar</button>
+        <button type="button" class="btn btn-success" (click)="cadastrar()" data-dismiss="modal" >Publicar</button>
       </div>
     </div>
   </div>
