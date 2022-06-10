@@ -25,10 +25,11 @@ export class EntrarComponent implements OnInit {
     this.auth.entrar(this.usuarioLoginModel).subscribe({
         next: (resp: UsuarioLoginModel)=>{
         this.usuarioLoginModel = resp
-        environment.tokenUsuario = this.usuarioLoginModel.tokenUsuario
+        environment.tokenUsuario = this.usuarioLoginModel.token
         environment.nomeUsuario = this.usuarioLoginModel.nomeUsuario
         environment.fotoUsuario = this.usuarioLoginModel.fotoUsuario
         environment.id = this.usuarioLoginModel.id
+        //console.log(environment)
         
         this.router.navigate(['/home'])
       },

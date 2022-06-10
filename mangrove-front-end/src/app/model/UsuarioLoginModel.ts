@@ -7,6 +7,6 @@ export class UsuarioLoginModel{
     public fotoUsuario: string
     public descricaoUsuario: string
     public tipoUsuario: string
-    public tokenUsuario: string
+    public token: string
 
 }
