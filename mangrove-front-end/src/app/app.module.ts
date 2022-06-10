@@ -12,6 +12,8 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { HomeComponent } from './home/home.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
+import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 
 
 
@@ -23,7 +25,9 @@ import { CategoriaComponent } from './categoria/categoria.component';
     EntrarComponent,
     CadastrarComponent,
     HomeComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    CategoriaEditComponent,
+    CategoriaDeleteComponent
   ],
   imports: [
     BrowserModule,

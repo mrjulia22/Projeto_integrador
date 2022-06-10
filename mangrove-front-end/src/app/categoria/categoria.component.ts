@@ -31,9 +31,9 @@ export class CategoriaComponent implements OnInit {
     if(environment.tokenUsuario == ""){
       //alert("Sessão encerrada! Faça login novamente.")
       this.router.navigate(["/entrar"])    
-  }
-  this.authService.refreshToken()   
+  }   
   this.findAllCategorias()
+  
 }
 
 
