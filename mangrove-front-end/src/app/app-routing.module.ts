@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   {path:'',redirectTo:'entrar', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'entrar',component:EntrarComponent},
-  {path:'cadastrar',component:CadastrarComponent}
+  {path:'cadastrar',component:CadastrarComponent},
+  {path: 'categoria', component: CategoriaComponent}
 ];
 
 @NgModule({

@@ -35,12 +35,12 @@ export class HomeComponent implements OnInit {
       //alert("Sessão encerrada! Faça login novamente.")
       this.router.navigate(["/entrar"])
     }
-    this.getAllCategorias()
-    this.getAllProdutos()
+    this.findAllCategorias()
+    this.findAllProdutos()
     //this.authService.refreshToken() 
 }
 
-  getAllCategorias(){
+  findAllCategorias(){
     this.categoriaService.getAllCategorias().subscribe((resp: CategoriaModel[])=>{
       this.listaCategorias = resp
     })
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
     }) 
 }
 
-getAllProdutos(){
+findAllProdutos(){
   this.produtoService.getAllProdutos().subscribe((resp: ProdutosModel[])=>{
     this.listaProdutos = resp
   })
@@ -69,7 +69,7 @@ publicar(){
     this.produto = resp
     alert('Produto cadastrado com sucesso!')
     this.produto = new ProdutosModel()
-    this.getAllProdutos()
+    this.findAllProdutos()
   })
 }
 
