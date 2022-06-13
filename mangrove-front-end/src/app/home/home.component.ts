@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private produtoService: ProdutosService,
     private categoriaService: CategoriasService,
-    private authService: AuthService
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

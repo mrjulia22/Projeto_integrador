@@ -32,7 +32,11 @@ export class CategoriaComponent implements OnInit {
       //alert("Sessão encerrada! Faça login novamente.")
       this.router.navigate(["/entrar"])    
   }   
-  this.findAllCategorias()
+    if(environment.tipoUsuario != "Administrador"){
+      alert("Você precisa ser Administrador para acessar essa rota")
+      this.router.navigate(['/home'])
+    }
+    this.findAllCategorias()
   
 }
 
