@@ -10,7 +10,7 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./entrar.component.css']
 })
 export class EntrarComponent implements OnInit {
-  usuarioLoginModel : UsuarioLoginModel = new UsuarioLoginModel
+  usuarioLoginModel : UsuarioLoginModel = new UsuarioLoginModel()
 
   constructor(
     private auth : AuthService,

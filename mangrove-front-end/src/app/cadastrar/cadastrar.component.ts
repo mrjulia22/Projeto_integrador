@@ -11,7 +11,7 @@ import { AuthService } from '../service/auth.service';
 
 
 export class CadastrarComponent implements OnInit {
-  usuarioModel: UsuariosModel = new UsuariosModel
+  usuarioModel: UsuariosModel = new UsuariosModel()
   confirmarSenha: string
   tipUsuario: string
   
