@@ -74,6 +74,7 @@
       <div class="card-columns">
         <div class="card text-center" *ngFor="let produto of listaProdutos">
           <div class="card-body">
+            <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">
             <h5 class="card-title m-0">{{produto.nomeProduto}}</h5>
             <small class="text-muted">Categoria: {{produto.categoria.nomeCategoria}}</small>
             <p class="card-text mb-3">{{produto.descricaoProduto}}</p>    
@@ -91,9 +92,21 @@
       class="tab-pane fade"
       id="produtoCategoria"
       role="tabpanel"
-      aria-labelledby="nav-produtoCategoria-tab">
-      
-      Produtos por categoria
+      aria-labelledby="nav-produtoCategoria-tab">    
+      <div class="card-columns">
+        <div class="card text-center" *ngFor="let categoria of listaCategorias"> 
+          <div class="card text-center" *ngFor="let produto of categoria.produtos">
+            <div class="card-body">
+              <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">
+              <h5 class="card-title m-0">{{produto.nomeProduto}}</h5>
+              <p class="card-text mb-3">{{produto.descricaoProduto}}</p>    
+              <small class="text-muted">Valor: {{produto.valorProduto}}</small>   
+              <small class="text-muted"> Disponíveis: {{produto.estoqueProduto}}</small>                 
+              <p class="card-text"><small class="text-muted">by:{{produto.usuario.nomeUsuario}}</small></p>
+            </div>
+          </div>     
+        </div>
+      </div>
     </div>
   </div>
 </div>
