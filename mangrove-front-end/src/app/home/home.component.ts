@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { CategoriaModel } from '../model/CategoriaModel';
 import { ProdutosModel } from '../model/ProdutosModel';
 import { UsuariosModel } from '../model/UsuariosModel';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { CategoriasService } from '../service/categorias.service';
 import { ProdutosService } from '../service/produtos.service';
@@ -35,7 +36,8 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private produtoService: ProdutosService,
     private categoriaService: CategoriasService,
-    public authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -85,7 +87,7 @@ cadastrar(){
   
   this.produtoService.postProdutos(this.produto).subscribe((resp: ProdutosModel)=>{
     this.produto = resp
-    alert('Produto cadastrado com sucesso!')
+    this.alertas.showAlertSuccess('Produto cadastrado com sucesso!')
     this.produto = new ProdutosModel()
     this.findAllProdutos()
   })
