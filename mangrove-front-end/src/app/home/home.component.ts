@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
 
   usuario: UsuariosModel = new UsuariosModel()
   idUsuario = environment.id
+  nome = environment.nomeUsuario
 
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
