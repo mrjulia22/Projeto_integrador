@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <div class="row d-flex justify-content-center">
         <div class="col-md-6 text-white mt-5">
-          <h1 class="text-54">Olá, administrador(a)!</h1>
+          <h1 class="text-54">Olá, {{nome}}</h1>
           <h5 class="text-18">
             Navegue entre os produtos através do menu abaixo.
           </h5>
@@ -11,8 +11,7 @@
       </div>
       <div class="row d-flex justify-content-center mt-3 mb-5">
         <div class="col-md-6">
-          <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">
-            Adicionar produto
+          <button *ngIf="authService.administrador()" class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Adicionar produto
           </button>
           <a class="btn btn-outline-light" href="#postagens">Ver produtos</a>
         </div>
@@ -39,10 +38,19 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="todosProdutos" role="tabpanel" aria-labelledby="nav-todosProdutos-tab">
 
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto para pesquisar" [(ngModel)]='nomeProduto' (keyup)='findByNomeProduto()'>
+          </div>
+        </div>
+      </div>
+
       <div class="card-columns">
-        <div class="card text-center" *ngFor="let produto of listaProdutos">
+        <div class="card text-center"
+         *ngFor="let produto of listaProdutos | orderBy : key : reverse">
           <div class="card-body">
-            <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">
+            <img src="{{produto.fotoProduto}}" onerror="this.src = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'" alt="Foto produto" width="100px" height="100px">
             <h5 class="card-title m-0">{{produto.nomeProduto}}</h5>
             <small class="text-muted">Categoria: {{produto.categoria.nomeCategoria}}</small>
             <p class="card-text mb-3">{{produto.descricaoProduto}}</p>
@@ -56,9 +64,23 @@
 
     </div>
 
-    <div class="tab-pane fade" id="produtoCategoria" role="tabpanel" aria-labelledby="nav-produtoCategoria-tab">
+    <div
+      class="tab-pane fade"
+      id="produtoCategoria"
+      role="tabpanel"
+      aria-labelledby="nav-produtoCategoria-tab">    
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nomeProduto" placeholder="Digite uma categoria para pesquisar" [(ngModel)]='nomeCategoria' (keyup)="findByNomeCategoria()">
+          </div>
+        </div>
+      </div>
+
       <div class="card-columns">
-        <div class="card text-center" *ngFor="let categoria of listaCategorias">
+        <div class="card text-center" 
+        *ngFor="let categoria of listaCategorias | orderBy : key : reverse"> 
           <div class="card text-center" *ngFor="let produto of categoria.produtos">
             <div class="card-body">
               <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">

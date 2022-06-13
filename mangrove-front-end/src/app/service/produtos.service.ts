@@ -24,6 +24,10 @@ export class ProdutosService {
     return this.http.get<ProdutosModel>(`https://mangroveprojeto.herokuapp.com/produtos/${id}`, this.tokenUsuario)
   }
 
+  getByNomeProduto(nomeProduto: string): Observable<ProdutosModel[]>{
+    return this.http.get<ProdutosModel[]>(`https://mangroveprojeto.herokuapp.com/produtos/nome/${nomeProduto}`, this.tokenUsuario)
+  }
+
   postProdutos(produto: ProdutosModel): Observable<ProdutosModel>{
     return this.http.post<ProdutosModel>('https://mangroveprojeto.herokuapp.com/produtos/cadastrar', produto, this.tokenUsuario)
   }
