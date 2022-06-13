@@ -16,6 +16,7 @@ import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.com
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 
@@ -37,7 +38,8 @@ import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.c
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    OrderModule
   ],
   providers: [{ 
     provide: LocationStrategy,

@@ -25,6 +25,9 @@ export class HomeComponent implements OnInit {
   listaCategorias: CategoriaModel[]
   idCategoria: number
   
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private produtoService: ProdutosService,

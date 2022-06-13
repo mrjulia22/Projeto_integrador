@@ -72,7 +72,8 @@
       aria-labelledby="nav-todosProdutos-tab">
 
       <div class="card-columns">
-        <div class="card text-center" *ngFor="let produto of listaProdutos">
+        <div class="card text-center"
+         *ngFor="let produto of listaProdutos | orderBy : key : reverse">
           <div class="card-body">
             <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">
             <h5 class="card-title m-0">{{produto.nomeProduto}}</h5>
@@ -94,7 +95,8 @@
       role="tabpanel"
       aria-labelledby="nav-produtoCategoria-tab">    
       <div class="card-columns">
-        <div class="card text-center" *ngFor="let categoria of listaCategorias"> 
+        <div class="card text-center" 
+        *ngFor="let categoria of listaCategorias | orderBy : key : reverse"> 
           <div class="card text-center" *ngFor="let produto of categoria.produtos">
             <div class="card-body">
               <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">
