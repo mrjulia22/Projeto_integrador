@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   produto: ProdutosModel = new ProdutosModel()
   listaProdutos: ProdutosModel[]
+  nomeProduto: string
 
   usuario: UsuariosModel = new UsuariosModel()
   idUsuario = environment.id
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
   idCategoria: number
+  nomeCategoria: string
   
   key = 'data'
   reverse = true
@@ -75,6 +77,10 @@ cadastrar(){
 
   this.usuario.id = this.idUsuario
   this.produto.usuario = this.usuario
+
+  if(this.produto.fotoProduto == ''){
+    this.produto.fotoProduto = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'
+  }
   
   this.produtoService.postProdutos(this.produto).subscribe((resp: ProdutosModel)=>{
     this.produto = resp
@@ -84,4 +90,24 @@ cadastrar(){
   })
 }
 
+findByNomeProduto(){
+
+  if(this.nomeProduto ==''){
+    this.findAllProdutos()
+  } else{
+    this.produtoService.getByNomeProduto(this.nomeProduto).subscribe((resp: ProdutosModel[]) => {
+      this.listaProdutos = resp
+    })
+  }  
+}
+
+findByNomeCategoria(){
+  if(this.nomeCategoria ==''){
+    this.findAllCategorias()
+  } else{
+    this.categoriaService.getByNomeCategoria(this.nomeCategoria).subscribe((resp: CategoriaModel[]) =>{
+      this.listaCategorias=resp
+    })
+  }
+}
 }

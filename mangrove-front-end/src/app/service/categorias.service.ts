@@ -26,6 +26,10 @@ export class CategoriasService {
     return this.http.get<CategoriaModel>(`https://mangroveprojeto.herokuapp.com/categorias/${id}`, this.tokenUsuario)
   }
 
+  getByNomeCategoria(nomeCategoria: string): Observable<CategoriaModel[]>{
+    return this.http.get<CategoriaModel[]>(`https://mangroveprojeto.herokuapp.com/categorias/nome/${nomeCategoria}`, this.tokenUsuario)
+  }
+
   postCategorias(categoria: CategoriaModel): Observable<CategoriaModel>{
     return this.http.post<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/cadastrar', categoria, this.tokenUsuario)
   }

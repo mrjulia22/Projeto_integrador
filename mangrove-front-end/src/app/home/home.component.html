@@ -71,11 +71,19 @@
       role="tabpanel"
       aria-labelledby="nav-todosProdutos-tab">
 
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto para pesquisar" [(ngModel)]='nomeProduto' (keyup)='findByNomeProduto()'>
+          </div>
+        </div>
+      </div>
+
       <div class="card-columns">
         <div class="card text-center"
          *ngFor="let produto of listaProdutos | orderBy : key : reverse">
           <div class="card-body">
-            <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">
+            <img src="{{produto.fotoProduto}}" onerror="this.src = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'" alt="Foto produto" width="100px" height="100px">
             <h5 class="card-title m-0">{{produto.nomeProduto}}</h5>
             <small class="text-muted">Categoria: {{produto.categoria.nomeCategoria}}</small>
             <p class="card-text mb-3">{{produto.descricaoProduto}}</p>    
@@ -94,6 +102,15 @@
       id="produtoCategoria"
       role="tabpanel"
       aria-labelledby="nav-produtoCategoria-tab">    
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nomeProduto" placeholder="Digite uma categoria para pesquisar" [(ngModel)]='nomeCategoria' (keyup)="findByNomeCategoria()">
+          </div>
+        </div>
+      </div>
+
       <div class="card-columns">
         <div class="card text-center" 
         *ngFor="let categoria of listaCategorias | orderBy : key : reverse"> 
