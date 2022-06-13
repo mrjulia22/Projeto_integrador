@@ -17,8 +17,10 @@ export class HomeComponent implements OnInit {
 
   produto: ProdutosModel = new ProdutosModel()
   listaProdutos: ProdutosModel[]
+
   usuario: UsuariosModel = new UsuariosModel()
   idUsuario = environment.id
+
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
   idCategoria: number
@@ -59,8 +61,18 @@ findAllProdutos(){
   })
 }
 
+findByIdUsuario(){
+  this.authService.getByIdUser(this.idUsuario).subscribe((resp: UsuariosModel)=>{
+    this.usuario = resp
+  })
+}
+
 cadastrar(){
   this.produto.categoria = this.categoria
+
+  this.usuario.id = this.idUsuario
+  this.produto.usuario = this.usuario
+  
   this.produtoService.postProdutos(this.produto).subscribe((resp: ProdutosModel)=>{
     this.produto = resp
     alert('Produto cadastrado com sucesso!')
