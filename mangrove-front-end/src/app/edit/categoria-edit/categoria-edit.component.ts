@@ -39,7 +39,7 @@ export class CategoriaEditComponent implements OnInit {
   }
 
   atualizar(){
-    if(this.categoria.produtos == ''){
+    if(this.categoria.produtos == []){
 
       this.categoriasService.putCategorias(this.categoria).subscribe((resp: CategoriaModel)=>{
         this.categoria=resp
@@ -48,9 +48,8 @@ export class CategoriaEditComponent implements OnInit {
       })    
     
     } else {
-      alert('Atenção! Não é possível apagar uma categoria que já possua produtos vinculados à ela.')
-    }
-   
+      this.alertas.showAlertDanger('Atenção! Não é possível modificar uma categoria que já possua produtos vinculados à ela.')
+    }   
   }
 
 }

@@ -11,7 +11,7 @@
       </div>
       <div class="row d-flex justify-content-center mt-3 mb-5">
         <div class="col-md-6">
-          <button *ngIf="authService.administrador()" class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Adicionar produto
+          <button *ngIf="administrador()" class="btn btn-light mr-2" data-toggle="modal" data-target="#novoProduto">Adicionar produto
           </button>
           <a class="btn btn-outline-light" href="#postagens">Ver produtos</a>
         </div>
@@ -56,9 +56,9 @@
             <p class="card-text mb-3">{{produto.descricaoProduto}}</p>
             <small class="text-muted">Valor: R${{produto.valorProduto}}</small>
             <small class="text-muted"> Disponíveis: {{produto.estoqueProduto}}</small>
-            <p class="card-text"><small class="text-muted">by:{{produto.usuario.nomeUsuario}}</small></p>
-            <a [routerLink]="['/produto-edit',produto.id]" class="text-info mr-3">Editar</a>
-              <a [routerLink]="['/produto-delete',produto.id]" class="text-danger">Deletar</a>
+            <p *ngIf="administrador()" class="card-text"><small class="text-muted">by:{{produto.usuario.nomeUsuario}}</small></p>
+            <a *ngIf="administrador()" [routerLink]="['/produto-edit',produto.id]" class="text-info mr-3">Editar</a>
+            <a *ngIf="administrador()" [routerLink]="['/produto-delete',produto.id]" class="text-danger">Deletar</a>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+<div class="modal fade" id="novoProduto" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -158,7 +158,7 @@
           Cancelar
         </button>
         <button type="button" class="btn btn-success" (click)="cadastrar()" data-dismiss="modal">
-          cadastrar
+          Cadastrar
         </button>
       </div>
     </div>
