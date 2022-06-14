@@ -46,4 +46,20 @@ export class MenuComponent implements OnInit {
       this.listaCategorias = resp
     })
   }
+
+  logado () {
+    let ok: boolean = false;
+    if (environment.tokenUsuario != '') {
+      ok = true
+    }
+    return ok
+  }
+
+  deslogado(){
+    let ok: boolean = false;
+    if (environment.tokenUsuario == '') {
+      ok = true
+    }
+    return ok
+  }
 }
