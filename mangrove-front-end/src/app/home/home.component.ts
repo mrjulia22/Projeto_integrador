@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { CategoriaModel } from '../model/CategoriaModel';
 import { ProdutosModel } from '../model/ProdutosModel';
 import { UsuariosModel } from '../model/UsuariosModel';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { CategoriasService } from '../service/categorias.service';
 import { ProdutosService } from '../service/produtos.service';
@@ -17,17 +18,26 @@ export class HomeComponent implements OnInit {
 
   produto: ProdutosModel = new ProdutosModel()
   listaProdutos: ProdutosModel[]
+  nomeProduto: string
+
   usuario: UsuariosModel = new UsuariosModel()
   idUsuario = environment.id
+  nome = environment.nomeUsuario
+
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
   idCategoria: number
+  nomeCategoria: string
   
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private produtoService: ProdutosService,
     private categoriaService: CategoriasService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -35,6 +45,7 @@ export class HomeComponent implements OnInit {
       //alert("Sessão encerrada! Faça login novamente.")
       this.router.navigate(["/entrar"])
     }
+    this.authService.refreshToken()
     this.findAllCategorias()
     this.findAllProdutos()
     //this.authService.refreshToken() 
@@ -58,19 +69,48 @@ findAllProdutos(){
   })
 }
 
-publicar(){
-  this.categoria.id = this.idCategoria
+findByIdUsuario(){
+  this.authService.getByIdUser(this.idUsuario).subscribe((resp: UsuariosModel)=>{
+    this.usuario = resp
+  })
+}
+
+cadastrar(){
   this.produto.categoria = this.categoria
 
   this.usuario.id = this.idUsuario
   this.produto.usuario = this.usuario
 
+  if(this.produto.fotoProduto == ''){
+    this.produto.fotoProduto = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'
+  }
+  
   this.produtoService.postProdutos(this.produto).subscribe((resp: ProdutosModel)=>{
     this.produto = resp
-    alert('Produto cadastrado com sucesso!')
+    this.alertas.showAlertSuccess('Produto cadastrado com sucesso!')
     this.produto = new ProdutosModel()
     this.findAllProdutos()
   })
 }
 
+findByNomeProduto(){
+
+  if(this.nomeProduto ==''){
+    this.findAllProdutos()
+  } else{
+    this.produtoService.getByNomeProduto(this.nomeProduto).subscribe((resp: ProdutosModel[]) => {
+      this.listaProdutos = resp
+    })
+  }  
+}
+
+findByNomeCategoria(){
+  if(this.nomeCategoria ==''){
+    this.findAllCategorias()
+  } else{
+    this.categoriaService.getByNomeCategoria(this.nomeCategoria).subscribe((resp: CategoriaModel[]) =>{
+      this.listaCategorias=resp
+    })
+  }
+}
 }

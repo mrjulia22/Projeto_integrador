@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -12,7 +14,12 @@ import { EntrarComponent } from './entrar/entrar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { HomeComponent } from './home/home.component';
 import { CategoriaComponent } from './categoria/categoria.component';
-
+import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
+import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
+import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
+import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
+import { AlertasComponent } from './alertas/alertas.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 
 @NgModule({
@@ -23,13 +30,20 @@ import { CategoriaComponent } from './categoria/categoria.component';
     EntrarComponent,
     CadastrarComponent,
     HomeComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    CategoriaEditComponent,
+    CategoriaDeleteComponent,
+    ProdutoEditComponent,
+    ProdutoDeleteComponent,
+    AlertasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
+    OrderModule
   ],
   providers: [{ 
     provide: LocationStrategy,

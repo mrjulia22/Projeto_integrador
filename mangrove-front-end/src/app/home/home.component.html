@@ -1,77 +1,165 @@
 <div class="container-fluid">
   <div class="row bg-secondary align-items-center">
-      <div class="col-md-6">
-          <div class="row d-flex justify-content-center">
-              <div class="col-md-6 text-white mt-5">
-                  <h1 class="text-54">Olá, administrador(a)!</h1>
-                  <h5 class="text-18">Navegue entre os produtos através do menu abaixo.</h5>
-              </div>
-          </div>
-          <div class="row d-flex justify-content-center mt-3 mb-5">
-              <div class="col-md-6">
-              <button class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Adicionar produto</button>
-              <a class="btn btn-outline-light" href="#postagens">Ver produtos</a>
-              </div>
-          </div>
+    <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6 text-white mt-5">
+          <h1 class="text-54">Olá, {{nome}}</h1>
+          <h5 class="text-18">
+            Navegue entre os produtos através do menu abaixo.
+          </h5>
+        </div>
       </div>
-      <div class="col-md-6 d-flex justify-content-center">
-          <img src="https://i.imgur.com/TH3bece.png" alt="" width="500px" height="500px">
-      </div>
-  </div>
-</div>
-<div class="container mt-5 mb-5" id="postagens">
-  <nav>
-      <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
-        
-          <a class="nav-link active text-secondary font-weight-bold" id="nav-todosProdutos-tab" data-toggle="tab" href="#todosProdutos" role="tab" aria-controls="nav-todosProdutos" aria-selected="true">Todos os produtos</a>
-        
-          <a class="nav-link text-secondary font-weight-bold" id="nav-produtoCategoria-tab" data-toggle="tab" href="#produtoCategoria" role="tab" aria-controls="nav-produtoCategoria" aria-selected="false">Produtos por categoria</a>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-            
-      <div class="tab-pane fade" id="todosProdutos" role="tabpanel" aria-labelledby="nav-todosProdutos-tab">
-          Todos os produtos</div>     
-      <div class="tab-pane fade" id="produtoCategoria" role="tabpanel" aria-labelledby="nav-produtoCategoria-tab">
-          Produtos por categoria 
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-6">
+          <button *ngIf="authService.administrador()" class="btn btn-light mr-2" data-toggle="modal" data-target="#novaPostagem">Adicionar produto
+          </button>
+          <a class="btn btn-outline-light" href="#postagens">Ver produtos</a>
+        </div>
       </div>
     </div>
+    <div class="col-md-6 d-flex justify-content-center">
+      <img src="https://i.imgur.com/TH3bece.png" alt="" width="500px" height="500px" />
+    </div>
+  </div>
 </div>
 
+<div class="container mt-5 mb-5" id="postagens">
+  <nav>
+    <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+      <a class="nav-link active text-secondary font-weight-bold" id="nav-todosProdutos-tab" data-toggle="tab"
+        href="#todosProdutos" role="tab" aria-controls="nav-todosProdutos" aria-selected="true">Todos os produtos</a>
+
+      <a class="nav-link text-secondary font-weight-bold" id="nav-produtoCategoria-tab" data-toggle="tab"
+        href="#produtoCategoria" role="tab" aria-controls="nav-produtoCategoria" aria-selected="false">Produtos por
+        categoria</a>
+    </div>
+  </nav>
+
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="todosProdutos" role="tabpanel" aria-labelledby="nav-todosProdutos-tab">
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nomeProduto" placeholder="Digite o nome do produto para pesquisar" [(ngModel)]='nomeProduto' (keyup)='findByNomeProduto()'>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-columns">
+        <div class="card text-center"
+         *ngFor="let produto of listaProdutos | orderBy : key : reverse">
+          <div class="card-body">
+            <img src="{{produto.fotoProduto}}" onerror="this.src = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'" alt="Foto produto" width="100px" height="100px">
+            <h5 class="card-title m-0">{{produto.nomeProduto}}</h5>
+            <small class="text-muted">Categoria: {{produto.categoria.nomeCategoria}}</small>
+            <p class="card-text mb-3">{{produto.descricaoProduto}}</p>
+            <small class="text-muted">Valor: R${{produto.valorProduto}}</small>
+            <small class="text-muted"> Disponíveis: {{produto.estoqueProduto}}</small>
+            <p class="card-text"><small class="text-muted">by:{{produto.usuario.nomeUsuario}}</small></p>
+            <a [routerLink]="['/produto-edit',produto.id]" class="text-info mr-3">Editar</a>
+              <a [routerLink]="['/produto-delete',produto.id]" class="text-danger">Deletar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div
+      class="tab-pane fade"
+      id="produtoCategoria"
+      role="tabpanel"
+      aria-labelledby="nav-produtoCategoria-tab">    
+
+      <div class="row d-flex justify-content-center mt-5 mb-5">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="nomeProduto" placeholder="Digite uma categoria para pesquisar" [(ngModel)]='nomeCategoria' (keyup)="findByNomeCategoria()">
+          </div>
+        </div>
+      </div>
+
+      <div class="card-columns">
+        <div class="card text-center" 
+        *ngFor="let categoria of listaCategorias | orderBy : key : reverse"> 
+          <div class="card text-center" *ngFor="let produto of categoria.produtos">
+            <div class="card-body">
+              <img src="{{produto.fotoProduto}}" alt="Foto produto" width="100px" height="100px">
+              <h5 class="card-title m-0">{{produto.nomeProduto}}</h5>
+              <p class="card-text mb-3">{{produto.descricaoProduto}}</p>
+              <small class="text-muted">Valor: {{produto.valorProduto}}</small>
+              <small class="text-muted"> Disponíveis: {{produto.estoqueProduto}}</small>
+              <p class="card-text"><small class="text-muted">by:{{produto.usuario.nomeUsuario}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Modal -->
-<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Adicionar produto</h5>
+        <h5 class="modal-title" id="TituloModalCentralizado">
+          Adicionar produto
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        
         <div class="form-group">
-          <label for="titulo">Nome</label>
-          <input type="text" class="form-control" id="titulo" placeholder="Digite o título">
+          <label for="titulo">Titulo</label>
+          <input type="text" [(ngModel)]="produto.nomeProduto" class="form-control" id="titulo"
+            placeholder="Digite o título" />
         </div>
 
         <div class="form-group">
-          <label for="texto">Descrição</label>
-          <textarea class="form-control" name="texto" id="texto" rows="3"></textarea>
+          <label for="texto">Texto</label>
+          <textarea type="text" class="form-control" [(ngModel)]="produto.descricaoProduto" name="texto" id="texto"
+            placeholder="Digite o texto entre 5-1000 caracteres" rows="3"></textarea>
         </div>
 
         <div class="form-group">
-          <label for="texto">Escolha uma categoria ou <a data-dismiss="modal" routerLink="/categoria">cadastre uma nova</a></label>
-          <select class="form-control" name="tema" id="tema" >
-              <option value="">Categoria</option>
+          <label for="fotoProduto">Foto do produto</label>
+          <input type="text" [(ngModel)]="produto.fotoProduto" class="form-control" id="fotoProduto"
+            placeholder="Insira o link da foto" />
+        </div>
+
+        <div class="form-group">
+          <label for="valorProduto">Valor do produto</label>
+          <input type="number" [(ngModel)]="produto.valorProduto" class="form-control" id="valorProduto"
+            placeholder="Digite o preço" />
+        </div>
+
+        <div class="form-group">
+          <label for="estoqueProduto">Estoque do produto</label>
+          <input type="number" [(ngModel)]="produto.estoqueProduto" class="form-control" id="estoqueProduto"
+            placeholder="Quantidade disponível" />
+        </div>
+
+        <div class="form-group">
+          <label for="texto">Escolha uma Categoria ou
+            <a routerLink="/categoria" data-dismiss="modal">cadastre uma nova</a>:</label>
+          <select class="form-control" name="categoria" id="categoria" [(ngModel)]="idCategoria"
+            (change)="findByIdCategorias()">
+            <option *ngFor="let categoria of listaCategorias" value="{{ categoria.id}}">
+              {{ categoria.nomeCategoria }}
+            </option>
           </select>
         </div>
-      
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success">Publicar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-success" (click)="cadastrar()" data-dismiss="modal">
+          cadastrar
+        </button>
       </div>
     </div>
   </div>

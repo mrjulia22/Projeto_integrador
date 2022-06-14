@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuariosModel } from '../model/UsuariosModel';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -11,14 +12,15 @@ import { AuthService } from '../service/auth.service';
 
 
 export class CadastrarComponent implements OnInit {
-  usuarioModel: UsuariosModel = new UsuariosModel
+  usuarioModel: UsuariosModel = new UsuariosModel()
   confirmarSenha: string
   tipUsuario: string
   
   
   constructor(
     private auth : AuthService,
-    private router : Router
+    private router : Router,
+    private alertas: AlertasService
   ) {}
 
   ngOnInit() {
@@ -34,12 +36,12 @@ export class CadastrarComponent implements OnInit {
   cadastrar(){
     this.usuarioModel.tipoUsuario = this.tipUsuario
     if(this.usuarioModel.passwordUsuario != this.confirmarSenha){
-      alert('As senhas estão incorretas.')
+      this.alertas.showAlertDanger('As senhas estão incorretas.')
     } else{
       this.auth.cadastrar(this.usuarioModel).subscribe((resp: UsuariosModel)=> {
         this.usuarioModel=resp
         this.router.navigate(['/entrar'])
-        alert('Usuário cadastrado com sucesso!')
+        this.alertas.showAlertSuccess('Usuário cadastrado com sucesso!')
       })     
     }
   }

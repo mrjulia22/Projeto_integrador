@@ -31,12 +31,23 @@ export class AuthService {
     return this.http.post<UsuariosModel>('https://mangroveprojeto.herokuapp.com/usuarios/cadastrar', usuarioModel)
   }
 
+  getByIdUser(id: number): Observable<UsuariosModel>{
+    return this.http.get<UsuariosModel>(`https://mangroveprojeto.herokuapp.com/usuarios/${id}`, this.token)
+  }
+
   logado () {
     let ok: boolean = false;
     if (environment.tokenUsuario != '') {
       ok = true
     }
     return ok
+  }
 
+  administrador () {
+    let ok: boolean = false;
+    if (environment.tipoUsuario == 'adm') {
+      ok = true
+    }
+    return ok
   }
 }

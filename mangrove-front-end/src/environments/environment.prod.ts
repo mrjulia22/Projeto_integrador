@@ -3,6 +3,6 @@ export const environment = {
   tokenUsuario: "",
   nomeUsuario: "",
   id:0,
-  fotoUsuario: ""
-
+  fotoUsuario: "",
+  tipoUsuario: ""
 };
