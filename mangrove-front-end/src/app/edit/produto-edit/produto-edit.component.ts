@@ -34,39 +34,40 @@ export class ProdutoEditComponent implements OnInit {
       alert('Sua sessão expirou faça o login novamente.')
       this.router.navigate(['/entrar'])
   }
-  let id = this.route.snapshot.params['id']
-  this.findByIdProdutos(id)
-  this.findAllCategorias()
+    let id = this.route.snapshot.params['id']
+    this.findByIdProdutos(id)
+    this.findAllCategorias()
 
 }
 
-findByIdProdutos(id: number){
-this.produtosService.getByIdProdutos(id).subscribe((resp: ProdutosModel)=>{
-  this.produto = resp
-})
-
-}
-findByIdCategorias(){
-  this.categoriasService.getByIdCategorias(this.idCategoria).subscribe((resp:CategoriaModel)=>{
-    this.categoria = resp
-  })
-}
-
-findAllCategorias(){
-this.categoriasService.getByIdCategorias(this.idCategoria).subscribe((resp: CategoriaModel) =>{
-  this.categoria = resp
-})
-
-}
-
-atualizar(){
-  this.categoria.id=this.idCategoria
-  this.produto.categoria=this.categoria
-  this.produtosService.putProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
+  findByIdProdutos(id: number){
+  this.produtosService.getByIdProdutos(id).subscribe((resp: ProdutosModel)=>{
     this.produto = resp
-    this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
-    this.router.navigate(['/home'])
   })
+
+  }
+  findByIdCategorias(){
+    this.categoriasService.getByIdCategorias(this.idCategoria).subscribe((resp:CategoriaModel)=>{
+      this.categoria = resp
+    })
+  }
+
+  findAllCategorias(){
+  this.categoriasService.getAllCategorias().subscribe((resp: CategoriaModel[]) =>{
+    this.listCategorias = resp
+  })
+
+  }
+
+  atualizar(){
+    this.categoria.id=this.idCategoria
+    this.produto.categoria=this.categoria
+    
+    this.produtosService.putProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
+      this.produto = resp
+      this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
+      this.router.navigate(['/home'])
+    })
 }
 
 
