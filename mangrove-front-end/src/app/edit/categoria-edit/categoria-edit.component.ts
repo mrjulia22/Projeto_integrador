@@ -48,7 +48,7 @@ export class CategoriaEditComponent implements OnInit {
       })    
     
     } else {
-      alert('Atenção! Não é possível apagar uma categoria que já possua produtos vinculados.')
+      alert('Atenção! Não é possível apagar uma categoria que já possua produtos vinculados à ela.')
     }
    
   }
