@@ -39,11 +39,18 @@ export class CategoriaEditComponent implements OnInit {
   }
 
   atualizar(){
-    this.categoriasService.putCategorias(this.categoria).subscribe((resp: CategoriaModel)=>{
-      this.categoria=resp
-      this.alertas.showAlertSuccess('Categoria atualizada com sucesso!')
-      this.router.navigate(['/categoria'])
-    })    
+    if(this.categoria.produtos == ''){
+
+      this.categoriasService.putCategorias(this.categoria).subscribe((resp: CategoriaModel)=>{
+        this.categoria=resp
+        this.alertas.showAlertSuccess('Categoria atualizada com sucesso!')
+        this.router.navigate(['/categoria'])
+      })    
+    
+    } else {
+      alert('Atenção! Não é possível apagar uma categoria que já possua produtos vinculados.')
+    }
+   
   }
 
 }

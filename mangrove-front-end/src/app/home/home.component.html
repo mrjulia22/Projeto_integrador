@@ -48,8 +48,9 @@
             <p class="card-text mb-3">{{produto.descricaoProduto}}</p>
             <small class="text-muted">Valor: R${{produto.valorProduto}}</small>
             <small class="text-muted"> Disponíveis: {{produto.estoqueProduto}}</small>
-
             <p class="card-text"><small class="text-muted">by:{{produto.usuario.nomeUsuario}}</small></p>
+            <a [routerLink]="['/produto-edit',produto.id]" class="text-info mr-3">Editar</a>
+              <a [routerLink]="['/produto-delete',produto.id]" class="text-danger">Deletar</a>
           </div>
         </div>
       </div>

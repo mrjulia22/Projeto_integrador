@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertasComponent } from 'src/app/alertas/alertas.component';
 import { CategoriaModel } from 'src/app/model/CategoriaModel';
 import { ProdutosModel } from 'src/app/model/ProdutosModel';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { CategoriasService } from 'src/app/service/categorias.service';
 import { ProdutosService } from 'src/app/service/produtos.service';
 import { environment } from 'src/environments/environment.prod';
@@ -22,7 +24,8 @@ export class ProdutoEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private produtosService: ProdutosService,
-    private categoriasService: CategoriasService
+    private categoriasService: CategoriasService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -61,7 +64,7 @@ atualizar(){
   this.produto.categoria=this.categoria
   this.produtosService.putProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
     this.produto = resp
-    alert('Produto atualizado com sucesso!')
+    this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
     this.router.navigate(['/home'])
   })
 }
