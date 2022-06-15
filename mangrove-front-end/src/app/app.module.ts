@@ -24,6 +24,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { ProdutoComponent } from './produto/produto.component';
 import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categoria.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
+import { BuscarProdutosComponent } from './buscar/buscar-produtos/buscar-produtos.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.compo
     AlertasComponent,
     ProdutoComponent,
     BuscarCategoriaComponent,
-    DetalheProdutoComponent
+    DetalheProdutoComponent,
+    BuscarProdutosComponent
   ],
   imports: [
     BrowserModule,
