@@ -1,25 +1,13 @@
-ul.social-network{
-    list-style: none;
-    padding: 0;
+.rodape-custom{
+    margin: 20px;
+    background-color: #45B264;
+    border-radius: 20px;
+    padding: 80px; 
 }
 
-ul.social-network li{
-    display: inline;
-    margin: 0;
-    padding: 5px;
+.rodape-custom-2{
+    margin: 20px;
+    border-radius: 20px;
+    padding: 20px; 
+    background-color: #E66C1F;
 }
-
-.fa{
-    font-size: 35pt;
-    color: white;
-    padding: 10px;
-}
-.fa-envelope:hover {
-    filter:drop-shadow(0 0 6px rgb(228, 228, 228));
-    color: black;
- }
- 
- .fa-github-square:hover {
-     filter:drop-shadow(0 0 6px rgb(228, 228, 228));
-     color: black;
- }
