@@ -34,7 +34,7 @@
                 </li>
     
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nossas raízes</a>
+                    <a class="nav-link" routerLink="/componente-raizes">Nossas raízes</a>
                 </li>
 
                 <li class="nav-item">
@@ -54,9 +54,9 @@
                         <i class="fa fa-user-o" aria-hidden="true"></i>
                     </a>
                     <div class="dropdown-menu dropdown-custom" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item dropdown-item-custom" href="#"*ngIf="deslogado()">Entrar</a>
-                      <a class="dropdown-item dropdown-item-custom" href="#"*ngIf="deslogado()">Cadastrar</a>
-                      <a class="dropdown-item dropdown-item-custom" href="#"*ngIf="logado()">Editar perfil</a>
+                      <a class="dropdown-item dropdown-item-custom"  routerLink="/entrar" *ngIf="deslogado()">Entrar</a>
+                      <a class="dropdown-item dropdown-item-custom" routerLink="/cadastrar" *ngIf="deslogado()">Cadastrar</a>
+                      <a class="dropdown-item dropdown-item-custom"  routerLink="/usuario-edit" *ngIf="logado()">Editar perfil</a>
                       <a class="dropdown-item dropdown-item-custom" (click)="sair()" *ngIf="logado()">Sair</a>
                     </div>
                 </li>
