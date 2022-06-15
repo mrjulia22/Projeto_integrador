@@ -1,28 +1,59 @@
-
-.bg-verde {
-    background-color: #45B264;
-}
-.bg-entrar {
-    background-color: #FEFFDE;
+.form-custom-geral{
     border-radius: 20px;
-}
-.inputs{
-    border-radius: 20px;
-    border: none;
     background-color: white;
+    margin-top: 200px;
 }
 
-.bg-btn-cadastrar{
-    background-color: #45B264;
+.bg-mangue{
+    background: url(https://imgur.com/L9U6IKq.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -150px;
 }
 
-.bg-btn-cancelar{
+
+.form-custom{
+    padding: 20px 25px;
     border-radius: 20px;
-    border: none;
-    background-color: #E66C1F ;
+    border: thin solid #cccccc;
 }
 
-.cadastrar{
-    font-weight:900 ;
+.cadastro a{
+    color: #ADAC33;
+    font-weight: bold;
 }
 
+
+.button-cadastrar {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ADAC33;
+    border-radius: 20px;
+    padding: 10px 50px;
+    margin-bottom: 20px;
+}
+
+.button-cadastrar:hover {
+    color: #F3DCAF;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.button-cancelar {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #c4c4c4;
+    border-radius: 20px;
+    padding: 10px 50px;
+    margin-bottom: 20px;
+}
+
+.button-cancelar:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: 0.3s;
+}

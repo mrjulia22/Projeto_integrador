@@ -8,6 +8,9 @@ import { ProdutosModel } from '../model/ProdutosModel';
   providedIn: 'root'
 })
 export class ProdutosService {
+  getProdsById(id: number) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private http: HttpClient
