@@ -23,6 +23,7 @@ import { AlertasComponent } from './alertas/alertas.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { ProdutoComponent } from './produto/produto.component';
 import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categoria.component';
+import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { BuscarProdutosComponent } from './buscar/buscar-produtos/buscar-produtos.component';
 
 
@@ -42,6 +43,7 @@ import { BuscarProdutosComponent } from './buscar/buscar-produtos/buscar-produto
     AlertasComponent,
     ProdutoComponent,
     BuscarCategoriaComponent,
+    DetalheProdutoComponent,
     BuscarProdutosComponent
   ],
   imports: [

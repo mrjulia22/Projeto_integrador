@@ -2,8 +2,6 @@
  .footer-links{
     display: flex;
     align-items: center;
-    border-radius: 20px;
-    margin: 20px;
     background-color: #ADAC33;
     padding: 50px 150px;
     justify-content: space-between;
@@ -52,8 +50,6 @@
  }
 
  .footer-copyright{
-    border-radius: 20px;
-    margin: 20px;
     background-color: #FBC107;
     padding: 10px;
     text-align: center;

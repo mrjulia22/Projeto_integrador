@@ -18,7 +18,6 @@ export class MenuComponent implements OnInit {
   categoria: CategoriaModel = new CategoriaModel()
   idCategoria: number
 
-
   constructor(
     private router: Router,
     private categoriaService: CategoriasService,
