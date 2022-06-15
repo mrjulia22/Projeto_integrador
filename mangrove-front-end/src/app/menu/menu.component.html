@@ -18,8 +18,10 @@
                     </a>
                     <div class="dropdown-menu dropdown-custom" aria-labelledby="navbarDropdown">
                         <div *ngFor="let categoria of listaCategorias">
-                            <a class="dropdown-item dropdown-item-custom" [routerLink]="['/buscar-categoria', categoria.id]">{{categoria.nomeCategoria}}</a>
-                        </div>                      
+                            <a class="dropdown-item dropdown-item-custom" [routerLink]="['/buscar-categoria', categoria.id]">{{categoria.nomeCategoria}}</a> 
+                        </div>   
+                        <div class="dropdown-divider"></div>
+                        <a *ngIf="administrador()" class="dropdown-item dropdown-item-custom" routerLink="/categoria">Editar/Adicionar categorias</a>                   
                     </div>
                 </li>
     

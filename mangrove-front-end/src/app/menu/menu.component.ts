@@ -63,4 +63,12 @@ export class MenuComponent implements OnInit {
     }
     return ok
   }
+
+  administrador () {
+    let ok: boolean = false;
+    if (environment.tipoUsuario == 'adm') {
+      ok = true
+    }
+    return ok
+  }
 }
