@@ -5,6 +5,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
+import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
 import { EntrarComponent } from './entrar/entrar.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'produto-delete/:id', component: ProdutoDeleteComponent},
   {path: 'produto-edit/:id', component: ProdutoEditComponent},
   {path: 'produto',component: ProdutoComponent},
-  {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent}
+  {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent},
+  {path: 'detalhe-produto/', component: DetalheProdutoComponent}
 ];
 
 @NgModule({

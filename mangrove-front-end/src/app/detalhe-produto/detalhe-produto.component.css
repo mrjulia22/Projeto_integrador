@@ -1,0 +1,55 @@
+.descricao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin: 50px 210px;
+    gap: 50px;
+}
+
+.detalhe-produto{
+    width: 100vw;
+    text-align: center;
+}
+
+.detalhe-produto h1{
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.detalhe-produto img{
+    width: 500px;
+    border-radius: 20px;
+}
+
+.conteudo h5{
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.conteudo-valor {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.conteudo p{
+    font-size: 25px;
+}
+
+
+.button-adicionar{
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ADAC33;
+    border-radius: 20px;
+    padding: 10px 250px;
+    margin: 25px 0;
+}
+
+.button-adicionar:hover{
+    color: #F3DCAF;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
