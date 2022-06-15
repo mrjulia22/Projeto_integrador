@@ -1,61 +1,53 @@
-<div class="container-fluid">
-    <div class="row bgColor">
-        <div class="col-md-12 text-dark">
- 
-            <a routerLink="/home" class="text-dark text-left">
-                <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-            </a>
-            <h3 class="fs-54 text-center fontQuick">CATEGORIAS</h3>
-            <h5 class="fs-18 text-center fontQuick">Veja aqui todas as categorias cadastradas ou cadastre uma nova</h5>
-            
-            <div class="row d-flex justify-content-center mt-4 mb-5">
-                <div class="col-md-3">
+<div class="container">
+    <div class="row justify-content-around mt-5">
+        <div class="col-md-6">
+            <h2>Todas as categorias:</h2>  
+        </div>   
+       
+        <div class="col-md-4">
+            <div class="input-group">
+                <input type="text" class="form-control borderRad" aria-label="Text input with dropdown button" placeholder="filtrar por categoria" [(ngModel)]='nomeCategoria' (keyup)="findByNomeCategoria()">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+            <div class="row d-flex justify-content-between m-5">
+               
+                <div class="col-md-4 flex-column">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col px-4">Categorias</th>
+                            <th scope="col" class="text-center">Ações</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let categoria of listaCategorias, index as id">
+                            <td>
+                                <a [routerLink]="['/buscar-categoria', categoria.id]">{{categoria.nomeCategoria}}</a>
+                            </td>
+                            <td class="d-flex justify-content-end">
+                                <button class="btn btn-info mr-2 p-1"  [routerLink]="['/categoria-edit', categoria.id]">Editar</button>
+                                <button class="btn btn-danger p-1" [routerLink]="['/categoria-delete', categoria.id]">Apagar</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    
+                </div>
+                               
+
+                <div class="col-md-4 m-5">
+                    <h5 class="fs-18 text-center fontQuick"> Cadastre aqui nova categoria: </h5>
                     <div class="form-group">
-                        <input [(ngModel)]="categoria.nomeCategoria" type="text" name="nomeCategoria" class="form-control" id="nomeCategoria" placeholder="Digite o nome da categoria">
+                        <input [(ngModel)]="categoria.nomeCategoria" type="text" name="nomeCategoria" class="form-control " id="nomeCategoria" placeholder="Digite o nome da categoria">
                     </div>
                     <div class="d-flex justify-content-center">
                         <button class="btn btn-dark" (click)="cadastrarCategoria()">Cadastrar</button>
-                    </div>
- 
-                </div>               
+                    </div> 
+                </div>
  
             </div>
- 
         </div>
-    </div>
-</div>
- 
-<div class="container">
- 
-    <div class="row mt-5">
-        <div class="col-md-12">
-            <h3 class="text-center">TODOS OS TEMAS:</h3>
-        </div>
-    </div>
- 
-    <div class="row mt-3 mb-5 d-flex justify-content-center">
-        <div class="col-md-6">
- 
-            <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col" class="text-center">Ações</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let categoria of listaCategorias, index as id">
-                    <th scope="row">{{id+1}}</th>
-                    <td>{{categoria.nomeCategoria}}</td>
-                    <td class="d-flex justify-content-end">
-                        <button class="btn btn-info mr-3" [routerLink]="['/categoria-edit', categoria.id]">Editar</button>
-                        <button class="btn btn-danger" [routerLink]="['/categoria-delete', categoria.id]">Apagar</button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              
-        </div>
-    </div>
-</div>

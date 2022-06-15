@@ -17,6 +17,8 @@ export class CategoriaComponent implements OnInit {
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
 
+  nomeCategoria: string
+
   constructor(
     private router: Router, 
     private categoriasService: CategoriasService,
@@ -45,6 +47,16 @@ findAllCategorias(){
   this.categoriasService.getAllCategorias().subscribe((resp: CategoriaModel[])=>{
     this.listaCategorias=resp
   })
+}
+
+findByNomeCategoria(){
+  if(this.nomeCategoria ==''){
+    this.findAllCategorias()
+  } else{
+    this.categoriasService.getByNomeCategoria(this.nomeCategoria).subscribe((resp: CategoriaModel[]) =>{
+      this.listaCategorias=resp
+    })
+  }
 }
 
 cadastrarCategoria(){
