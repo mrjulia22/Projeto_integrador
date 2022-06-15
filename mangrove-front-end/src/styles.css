@@ -3,3 +3,9 @@
 html {
     scroll-behavior: smooth;
 }
+
+/*Fontes Padrão:*/
+
+.fontRoboto {
+    font-family: 'Roboto', sans-serif;
+}

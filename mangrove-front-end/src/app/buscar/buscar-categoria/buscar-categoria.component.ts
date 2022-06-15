@@ -20,9 +20,6 @@ export class BuscarCategoriaComponent implements OnInit {
   listaProdutos: ProdutosModel[]
   nomeProduto: string
 
-  key = 'data'
-  reverse = true
-
   constructor(
     private router: Router,
     private produtosService: ProdutosService,
@@ -31,6 +28,7 @@ export class BuscarCategoriaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
     if(environment.tokenUsuario == ""){
       //alert("Sessão encerrada! Faça login novamente.")
       this.router.navigate(["/entrar"])
