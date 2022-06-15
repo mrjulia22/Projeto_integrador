@@ -7,6 +7,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 
+
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { RodapeComponent } from './rodape/rodape.component';
@@ -20,6 +21,7 @@ import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { ProdutoComponent } from './produto/produto.component';
 import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categoria.component';
 
 
@@ -37,6 +39,7 @@ import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categ
     ProdutoEditComponent,
     ProdutoDeleteComponent,
     AlertasComponent,
+    ProdutoComponent,
     BuscarCategoriaComponent
   ],
   imports: [
@@ -46,6 +49,7 @@ import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categ
     FormsModule,
     ModalModule.forRoot(),
     OrderModule
+    
   ],
   providers: [{ 
     provide: LocationStrategy,
