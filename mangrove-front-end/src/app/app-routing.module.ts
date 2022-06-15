@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'produto-edit/:id', component: ProdutoEditComponent},
   {path: 'produto',component: ProdutoComponent},
   {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent},
-  {path: 'detalhe-produto/', component: DetalheProdutoComponent}
+  {path: 'detalhe-produto/', component: DetalheProdutoComponent},
   {path: 'buscar-produtos', component:BuscarProdutosComponent}
 ];
 
