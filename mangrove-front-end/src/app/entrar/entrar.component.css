@@ -1,25 +1,49 @@
-.bg-verde {
-    background-color: #45B264;
-}
-
-#img-bg {
-    background-image: url('https://i.imgur.com/qnJmDtt.png');
-    min-width: 250px;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-}
-
-.bg-entrar {
-    background-color: #FEFFDE;
+.form-custom-geral{
     border-radius: 20px;
-}
-.inputs{
-    border-radius: 20px;
-    border: none;
     background-color: white;
+    margin-top: 200px;
 }
 
-.bg-btn-entrar{
-    background-color: #E66C1F;
+.bg-mangue{
+    background: url(https://imgur.com/L9U6IKq.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -200px;
+}
+
+
+.form-custom{
+    padding: 20px 25px;
+    border-radius: 20px;
+    border: thin solid #cccccc;
+}
+
+
+.button-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.cadastro a{
+    color: #ADAC33;
+    font-weight: bold;
+}
+
+.button-login button{
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #ADAC33;
+    border-radius: 20px;
+    padding: 10px 120px;
+    margin-bottom: 20px;
+}
+
+.button-login:hover button{
+    color: #F3DCAF;
+    transform: scale(1.1);
+    transition: 0.3s;
 }
