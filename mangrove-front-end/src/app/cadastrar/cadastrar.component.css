@@ -1,7 +1,28 @@
-#img-bg{
-    background-image:url("https://img.freepik.com/free-vector/nature-scene-with-mangrove-trees-water_1308-59217.jpg?w=740&t=st=1654021758~exp=1654022358~hmac=e241d1e3e9a0d70f5713c3f07a87dd6ca912878ab7a176aedb5661b665c5c8d7") ;
-min-height:695px;
-background-position: center;
-background-repeat:no-repeat ;
-background-size: cover;
+
+.bg-verde {
+    background-color: #45B264;
 }
+.bg-entrar {
+    background-color: #FEFFDE;
+    border-radius: 20px;
+}
+.inputs{
+    border-radius: 20px;
+    border: none;
+    background-color: white;
+}
+
+.bg-btn-cadastrar{
+    background-color: #45B264;
+}
+
+.bg-btn-cancelar{
+    border-radius: 20px;
+    border: none;
+    background-color: #E66C1F ;
+}
+
+.cadastrar{
+    font-weight:900 ;
+}
+
