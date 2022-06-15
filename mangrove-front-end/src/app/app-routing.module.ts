@@ -4,6 +4,7 @@ import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categ
 import { BuscarProdutosComponent } from './buscar/buscar-produtos/buscar-produtos.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { ComponenteRaizesComponent } from './componente-raizes/componente-raizes.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
 import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.component';
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
@@ -16,7 +17,7 @@ import { ProdutoComponent } from './produto/produto.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'entrar', pathMatch:'full'},
+  {path:'',redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
   {path:'entrar',component:EntrarComponent},
   {path:'cadastrar',component:CadastrarComponent},
@@ -27,8 +28,9 @@ const routes: Routes = [
   {path: 'produto-edit/:id', component: ProdutoEditComponent},
   {path: 'produto',component: ProdutoComponent},
   {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent},
-  {path: 'detalhe-produto/', component: DetalheProdutoComponent}
-  {path: 'buscar-produtos', component:BuscarProdutosComponent}
+  {path: 'detalhe-produto', component: DetalheProdutoComponent},
+  {path: 'buscar-produtos', component:BuscarProdutosComponent},
+  {path: 'componente-raizes', component: ComponenteRaizesComponent}
 ];
 
 @NgModule({
