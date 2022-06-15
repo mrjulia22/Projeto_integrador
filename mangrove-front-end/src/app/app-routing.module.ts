@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categoria.component';
+import { BuscarProdutosComponent } from './buscar/buscar-produtos/buscar-produtos.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { CategoriaDeleteComponent } from './delete/categoria-delete/categoria-delete.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'produto-delete/:id', component: ProdutoDeleteComponent},
   {path: 'produto-edit/:id', component: ProdutoEditComponent},
   {path: 'produto',component: ProdutoComponent},
-  {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent}
+  {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent},
+  {path: 'buscar-produtos', component:BuscarProdutosComponent}
 ];
 
 @NgModule({
