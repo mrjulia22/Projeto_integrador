@@ -1,0 +1,37 @@
+
+.border-r{
+    border-radius: 50px 50px 50px 50px;
+}
+
+
+.fonte-titulo {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.botao-cor-especial {
+    background-color: #E66C1F;
+    color: white;
+}
+
+.botao-cor-compra{
+    background-color: #45B264;
+    color: white;
+}
+
+.borda-cor-especial {
+    border-color: rgb(184, 182, 178);
+}
+
+.card-posicao-imagem {
+    object-fit: cover;
+    height: 200px;
+}
+.card-largura {
+    max-width: 18rem;
+    border-radius: 10px;
+}
+
+
+
+  
