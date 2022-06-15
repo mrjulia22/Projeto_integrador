@@ -17,9 +17,9 @@
                       Categorias
                     </a>
                     <div class="dropdown-menu dropdown-custom" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item dropdown-item-custom" href="">Categoria 1</a>
-                        <a class="dropdown-item dropdown-item-custom" href="">Categoria 2</a>
-                        <a class="dropdown-item dropdown-item-custom" href="">Categoria 3</a>
+                        <div *ngFor="let categoria of listaCategorias">
+                            <a class="dropdown-item dropdown-item-custom" [routerLink]="['/buscar-categoria', categoria.id]">{{categoria.nomeCategoria}}</a>
+                        </div>                      
                     </div>
                 </li>
     

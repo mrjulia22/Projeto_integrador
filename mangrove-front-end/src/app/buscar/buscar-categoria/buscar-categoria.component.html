@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row mb-5 mt-5 justify-content-between">
+    <div class="col-md-4">
+      <h5>
+        Encontrados {{ categoria.produtos.length }} produtos em
+        {{ categoria.nomeCategoria }}
+      </h5>
+    </div>
+
+    <div class="col-md-5">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control borderRad px-5"
+          aria-label="Text input with dropdown button"
+          placeholder="buscar produto"
+          [(ngModel)]="nomeProduto" (keyup)="findByNomeProduto()"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-around">
+    <div class="col-md-9">
+      
+        <div class="card-columns">
+        <div class="card text-center">
+          <div
+            class="card text-center"
+            *ngFor="let produto of categoria.produtos"
+          >
+            <div class="card-body">
+              <img
+                src="{{ produto.fotoProduto }}"
+                onerror="this.src = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'"
+                alt="Foto produto"
+                width="100px"
+                height="100px"
+              />
+              <h5 class="card-title m-0">{{ produto.nomeProduto }}</h5>
+              <p class="card-text mb-3">{{ produto.descricaoProduto }}</p>
+              <small class="text-muted"
+                >Valor: {{ produto.valorProduto }}</small
+              >
+              <small class="text-muted">
+                Disponíveis: {{ produto.estoqueProduto }}</small
+              >
+              <p class="card-text">
+                <small class="text-muted"
+                  >by:{{ produto.usuario.nomeUsuario }}</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

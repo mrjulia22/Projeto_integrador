@@ -25,8 +25,10 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.findAllCategorias()
   }
+
+
   sair(){
     this.router.navigate(['/entrar'])
     environment.tokenUsuario = ''
