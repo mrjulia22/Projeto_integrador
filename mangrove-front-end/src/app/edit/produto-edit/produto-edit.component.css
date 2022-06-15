@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-*{ font-family: 'Roboto', sans-serif;}
-.form-control{
-    -webkit-box-shadow-shadow: -11px 12px 11px 0px rgba(0,0,0,0.23);
--moz-box-shadow: inset -11px 12px 11px 0px rgba(0,0,0,0.23);
-box-shadow: -11px 12px 11px 0px rgba(0,0,0,0.23);
-border-radius: 20px 20px 20px 20px;
+.bota.botao-cor-especial {
+    background-color: #E66C1F;
+    color: white;
+    border-color:  #E66C1F;
 }
+.fonte-titulo {
+    font-family: 'Roboto', sans-serif;
+}
+.botao-tamanho {
+    min-width: 500px;
+    max-height: 500px;
+  
 
+}
+.form-control{
+    border-radius: 20px 20px 20px 20px;
+}
