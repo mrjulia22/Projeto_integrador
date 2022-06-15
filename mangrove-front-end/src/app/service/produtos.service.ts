@@ -8,6 +8,9 @@ import { ProdutosModel } from '../model/ProdutosModel';
   providedIn: 'root'
 })
 export class ProdutosService {
+  getProdsById(id: number) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(
     private http: HttpClient
@@ -22,6 +25,10 @@ export class ProdutosService {
 
   getByIdProdutos(id: number): Observable<ProdutosModel>{
     return this.http.get<ProdutosModel>(`https://mangroveprojeto.herokuapp.com/produtos/${id}`, this.tokenUsuario)
+  }
+
+  getByNomeProduto(nomeProduto: string): Observable<ProdutosModel[]>{
+    return this.http.get<ProdutosModel[]>(`https://mangroveprojeto.herokuapp.com/produtos/nome/${nomeProduto}`, this.tokenUsuario)
   }
 
   postProdutos(produto: ProdutosModel): Observable<ProdutosModel>{
