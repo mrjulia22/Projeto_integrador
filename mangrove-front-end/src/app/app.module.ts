@@ -22,6 +22,7 @@ import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.c
 import { AlertasComponent } from './alertas/alertas.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { ProdutoComponent } from './produto/produto.component';
+import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categoria.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ProdutoComponent } from './produto/produto.component';
     ProdutoEditComponent,
     ProdutoDeleteComponent,
     AlertasComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    BuscarCategoriaComponent
   ],
   imports: [
     BrowserModule,

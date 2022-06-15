@@ -25,8 +25,10 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.findAllCategorias()
   }
+
+
   sair(){
     this.router.navigate(['/entrar'])
     environment.tokenUsuario = ''
@@ -45,5 +47,21 @@ export class MenuComponent implements OnInit {
     this.categoriaService.getAllCategorias().subscribe((resp: CategoriaModel[])=>{
       this.listaCategorias = resp
     })
+  }
+
+  logado () {
+    let ok: boolean = false;
+    if (environment.tokenUsuario != '') {
+      ok = true
+    }
+    return ok
+  }
+
+  deslogado(){
+    let ok: boolean = false;
+    if (environment.tokenUsuario == '') {
+      ok = true
+    }
+    return ok
   }
 }
