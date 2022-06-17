@@ -21,6 +21,9 @@ export class BuscarProdutosComponent implements OnInit {
   nomeProduto: string
   nomeCategoria: string
 
+  key: string
+  reverse: boolean
+
   constructor(
     private produtosService: ProdutosService,
     private categoriasService: CategoriasService,
@@ -33,6 +36,17 @@ export class BuscarProdutosComponent implements OnInit {
       this.router.navigate(["/entrar"])
     }
     this.findAllProdutos()
+  }
+
+  opcaoKey(event: any){
+    let keyOp = event.target.value
+
+    if(keyOp == 1 ){
+      this.key = 'nomeProduto'
+    } else if(keyOp == 2){
+      this.key = 'valorProduto'
+    }
+      
   }
 
   categoriaSelecionada(event: any){
