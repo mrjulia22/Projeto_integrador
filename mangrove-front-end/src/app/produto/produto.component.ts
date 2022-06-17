@@ -29,10 +29,10 @@ export class ProdutoComponent implements OnInit {
   ) { }
  
   ngOnInit(){
-    if(environment.tokenUsuario == ""){
-      //alert("Sessão encerrada! Faça login novamente.")
-      this.router.navigate(["/entrar"])
-    }
+    // if(environment.tokenUsuario == ""){
+    //   //alert("Sessão encerrada! Faça login novamente.")
+    //   this.router.navigate(["/entrar"])
+    // }
     this.findAllProdutos()
   }
  

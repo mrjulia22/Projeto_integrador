@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit {
   listaProdutos: ProdutosModel[]
   nomeProduto: string
 
-  usuario: UsuariosModel = new UsuariosModel()
-  idUsuario = environment.id
-  nome = environment.nomeUsuario
+  // usuario: UsuariosModel = new UsuariosModel()
+  // idUsuario = environment.id
+  // nome = environment.nomeUsuario
 
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
@@ -41,11 +41,11 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(environment.tokenUsuario == ""){
-      //alert("Sessão encerrada! Faça login novamente.")
-      this.router.navigate(["/entrar"])
-    }
-    this.authService.refreshToken()
+    // if(environment.tokenUsuario == ""){
+    //   //alert("Sessão encerrada! Faça login novamente.")
+    //   this.router.navigate(["/entrar"])
+    // }
+    // this.authService.refreshToken()
     this.findAllCategorias()
     this.findAllProdutos()
     //this.authService.refreshToken() 
@@ -69,29 +69,11 @@ findAllProdutos(){
   })
 }
 
-findByIdUsuario(){
-  this.authService.getByIdUser(this.idUsuario).subscribe((resp: UsuariosModel)=>{
-    this.usuario = resp
-  })
-}
-
-cadastrar(){
-  this.produto.categoria = this.categoria
-
-  this.usuario.id = this.idUsuario
-  this.produto.usuario = this.usuario
-
-  if(this.produto.fotoProduto == ''){
-    this.produto.fotoProduto = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'
-  }
-  
-  this.produtoService.postProdutos(this.produto).subscribe((resp: ProdutosModel)=>{
-    this.produto = resp
-    this.alertas.showAlertSuccess('Produto cadastrado com sucesso!')
-    this.produto = new ProdutosModel()
-    this.findAllProdutos()
-  })
-}
+// findByIdUsuario(){
+//   this.authService.getByIdUser(this.idUsuario).subscribe((resp: UsuariosModel)=>{
+//     this.usuario = resp
+//   })
+// }
 
 findByNomeProduto(){
 

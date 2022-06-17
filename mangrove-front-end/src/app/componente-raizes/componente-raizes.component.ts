@@ -9,7 +9,7 @@ export class ComponenteRaizesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
