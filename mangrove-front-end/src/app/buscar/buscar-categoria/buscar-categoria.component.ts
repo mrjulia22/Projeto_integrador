@@ -20,6 +20,9 @@ export class BuscarCategoriaComponent implements OnInit {
   listaProdutos: ProdutosModel[]
   nomeProduto: string
 
+  key: string
+  reverse: boolean
+
   constructor(
     private router: Router,
     private produtosService: ProdutosService,
@@ -36,6 +39,17 @@ export class BuscarCategoriaComponent implements OnInit {
     let id= this.route.snapshot.params['id']
     this.findByIdCategoria(id)
     this.findAllProdutos()
+  }
+
+  opcaoKey(event: any){
+    let keyOp = event.target.value
+
+    if(keyOp == 1 ){
+      this.key = 'nomeProduto'
+    } else if(keyOp == 2){
+      this.key = 'valorProduto'
+    }
+      
   }
 
   findAllProdutos(){
