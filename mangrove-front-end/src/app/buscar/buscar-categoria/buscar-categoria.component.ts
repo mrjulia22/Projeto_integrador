@@ -36,6 +36,8 @@ export class BuscarCategoriaComponent implements OnInit {
     //   //alert("Sessão encerrada! Faça login novamente.")
     //   this.router.navigate(["/entrar"])
     // }
+
+    
     let id= this.route.snapshot.params['id']
     this.findByIdCategoria(id)
     this.findAllProdutos()
@@ -75,4 +77,11 @@ export class BuscarCategoriaComponent implements OnInit {
     }  
   }
 
+  administrador () {
+    let ok: boolean = false;
+    if (environment.tipoUsuario == 'adm') {
+      ok = true
+    }
+    return ok
+  }
 }

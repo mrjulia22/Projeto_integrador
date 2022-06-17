@@ -55,6 +55,10 @@
               Ver mais
             </button>
           </div>
+          <div *ngIf="administrador()">
+            <button class="btn btn-info mr-2"  [routerLink]="['/categoria-edit', categoria.id]">Editar</button>
+            <button  class="btn btn-danger" [routerLink]="['/categoria-delete', categoria.id]">Apagar</button>
+           </div>
         </div>
       </div>
     </article>
