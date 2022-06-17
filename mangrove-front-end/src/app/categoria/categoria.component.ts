@@ -67,4 +67,12 @@ cadastrarCategoria(){
     this.categoria= new CategoriaModel()      
   })
 }
+
+administrador () {
+  let ok: boolean = false;
+  if (environment.tipoUsuario == 'adm') {
+    ok = true
+  }
+  return ok
+}
 }
