@@ -32,10 +32,10 @@ export class BuscarCategoriaComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
-    if(environment.tokenUsuario == ""){
-      //alert("Sessão encerrada! Faça login novamente.")
-      this.router.navigate(["/entrar"])
-    }
+    // if(environment.tokenUsuario == ""){
+    //   //alert("Sessão encerrada! Faça login novamente.")
+    //   this.router.navigate(["/entrar"])
+    // }
     let id= this.route.snapshot.params['id']
     this.findByIdCategoria(id)
     this.findAllProdutos()

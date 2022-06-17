@@ -9,7 +9,7 @@ export class ComponentSobreNosComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
