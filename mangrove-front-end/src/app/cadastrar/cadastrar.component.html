@@ -33,12 +33,16 @@
         
                         <div class="form-group">
                             <label for="tipUsuario">Tipo de usuário</label>
-                            <select (change)="tipoDoUsuario($event)" class="form-control form-custom" name="tipUsuario" id="tipUsuario">
+                            <select (change)="tipoDoUsuario($event)" class="form-control form-custom" name="tipUsuario" id="tipUsuario" data-toggle="collapse" href='#multiCollapseExample1' role="option" aria-expanded="false" aria-controls="multiCollapseExample1">
                                 <option value=""selected disabled> Selecione um tipo de usuário</option>
                                 <option value="normal">Cliente</option>
-                                <option value="adm">Vendedor</option>
+                                <option value="adm" data-toggle="modal">Vendedor</option>
                                 </select>
                         </div>
+                        <div *ngIf="userAdm()">
+                            <label for="passwordUsuario">Chave Administrador:</label>
+                            <input (input)='senhaAdm($event)' class="border-r form-control form-custom" type="password">
+                        </div>                        
                     </div>
                 </div>
 
@@ -52,4 +56,25 @@
         </div>
 
 </div>
+
+
+<!-- <div *ngIf="userAdm()" class="modal" id="#userAdm" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
