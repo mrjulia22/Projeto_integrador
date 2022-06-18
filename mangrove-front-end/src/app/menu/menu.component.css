@@ -17,6 +17,7 @@ a{
     z-index: 1;
 }
 
+
 .dropdown-custom{
     background-color: #f3dcaf;
     border: 0;
@@ -35,10 +36,10 @@ a{
     color:black;
 }
 
+
 .fa{
     font-size: 27px;
     color: rgba(0,0,0,.5);
-    margin: 5px;
 }
 
 .fa:hover{
