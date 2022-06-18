@@ -60,7 +60,7 @@
                     <div class="dropdown-menu dropdown-custom" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item dropdown-item-custom"  routerLink="/entrar" *ngIf="deslogado()">Entrar</a>
                       <a class="dropdown-item dropdown-item-custom" routerLink="/cadastrar" *ngIf="deslogado()">Cadastrar</a>
-                      <a class="dropdown-item dropdown-item-custom"  routerLink="/usuario-edit" *ngIf="logado()">Editar perfil</a>
+                      <a class="dropdown-item dropdown-item-custom" [routerLink]="['/usuario-edit', id]" *ngIf="logado()">Editar usuario</a>
                       <a class="dropdown-item dropdown-item-custom" (click)="sair()" *ngIf="logado()">Sair</a>
                     </div>
                 </li>
