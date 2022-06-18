@@ -44,7 +44,7 @@
             alt="carangueijo"
           />
           <h5 class="card-title text-center">{{ produto.nomeProduto }}</h5>
-          <p class="card-text text-center">R$ {{ produto.valorProduto }}</p>
+          <p class="card-text text-center">R${{produto.valorProduto.replace(".", ",")}}</p>
           <div class="d-flex flex-column">
             <button
               href="#"
@@ -56,8 +56,8 @@
             </button>
           </div>
           <div *ngIf="administrador()">
-            <button class="btn btn-info mr-2"  [routerLink]="['/categoria-edit', categoria.id]">Editar</button>
-            <button  class="btn btn-danger" [routerLink]="['/categoria-delete', categoria.id]">Apagar</button>
+            <button class="btn btn-info mr-2"  [routerLink]="['/produto-edit', produto.id]">Editar</button>
+            <button  class="btn btn-danger" [routerLink]="['/produto-delete', produto.id]">Apagar</button>
            </div>
         </div>
       </div>
