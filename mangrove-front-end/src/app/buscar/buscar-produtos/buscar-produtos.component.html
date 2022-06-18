@@ -41,10 +41,10 @@
             src="{{ produto.fotoProduto }}"
             onerror="this.src = 'https://portal.crea-sc.org.br/wp-content/uploads/2017/11/imagem-indisponivel-para-produtos-sem-imagem_15_5.jpg'"
             class="card-posicao-imagem"
-            alt="carangueijo"
+            alt="imagem do produto"
           />
           <h5 class="card-title text-center">{{ produto.nomeProduto }}</h5>
-          <p class="card-text text-center">R$ {{ produto.valorProduto }}</p>
+          <p class="card-text text-center">R$ {{ produto.valorProduto | currency: "BRL" }}</p>
           <div class="d-flex flex-column">
             <button
               href="#"
