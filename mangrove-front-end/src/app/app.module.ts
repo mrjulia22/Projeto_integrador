@@ -28,7 +28,7 @@ import { BuscarProdutosComponent } from './buscar/buscar-produtos/buscar-produto
 import { ComponenteRaizesComponent } from './componente-raizes/componente-raizes.component';
 import { ComponentSobreNosComponent } from './component-sobre-nos/component-sobre-nos.component';
 import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
-
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.co
     ComponenteRaizesComponent,
     ComponenteRaizesComponent,
     ComponentSobreNosComponent,
-    CarrinhoComprasComponent
+    CarrinhoComprasComponent,
+    UsuarioEditComponent
   ],
   imports: [
     BrowserModule,
