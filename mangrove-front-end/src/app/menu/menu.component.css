@@ -17,6 +17,21 @@ a{
     z-index: 1;
 }
 
+.menu-icons{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+@media screen and (max-width:991px) {
+    .menu-icons{
+        flex-direction: column;
+    }
+    .menu-icons li{
+        padding: 0 !important;
+    }
+}
+
 .dropdown-custom{
     background-color: #f3dcaf;
     border: 0;
@@ -38,7 +53,6 @@ a{
 .fa{
     font-size: 27px;
     color: rgba(0,0,0,.5);
-    margin: 5px;
 }
 
 .fa:hover{
