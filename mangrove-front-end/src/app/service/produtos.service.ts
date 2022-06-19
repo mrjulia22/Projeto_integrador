@@ -19,6 +19,13 @@ export class ProdutosService {
   tokenUsuario = {
     headers: new HttpHeaders().set('Authorization',environment.tokenUsuario)
   }
+
+  refreshToken(){
+    this.tokenUsuario = {
+      headers: new HttpHeaders().set('Authorization', environment.tokenUsuario)
+    }
+  }
+  
   getAllProdutos(): Observable<ProdutosModel[]>{
     return this.http.get<ProdutosModel[]>('https://mangroveprojeto.herokuapp.com/produtos/all')
   }

@@ -2,6 +2,7 @@
     border-radius: 20px;
     background-color: white;
     margin-top: 200px;
+    min-width: 60vw;
 }
 
 .bg-mangue{
@@ -38,8 +39,9 @@
     text-transform: uppercase;
     background-color: #ADAC33;
     border-radius: 20px;
-    padding: 10px 120px;
+    padding: 10px 70px;
     margin-bottom: 20px;
+    width: fit-content;
 }
 
 .button-login:hover button{
