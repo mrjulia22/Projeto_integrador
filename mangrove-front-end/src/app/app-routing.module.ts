@@ -36,6 +36,7 @@ const routes: Routes = [
   {path: 'componente-raizes', component: ComponenteRaizesComponent},
   {path: 'componente-sobre-nos', component: ComponentSobreNosComponent},
   {path: 'usuario-edit/:id', component: UsuarioEditComponent}
+  
 ];
 
 @NgModule({
