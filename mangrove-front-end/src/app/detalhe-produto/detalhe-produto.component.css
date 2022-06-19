@@ -19,7 +19,7 @@
 }
 
 .detalhe-produto img{
-    width: 500px;
+    width: 400px;
     border-radius: 20px;
 }
 
@@ -34,7 +34,11 @@
 }
 
 .conteudo p{
-    font-size: 25px;
+    font-size: 18px;
+}
+
+.fa{
+    padding-right: 10px;
 }
 
 
@@ -42,14 +46,27 @@
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #ADAC33;
+    background-color: #45B264;
     border-radius: 20px;
-    padding: 10px 250px;
+    width: 450px;
     margin: 25px 0;
 }
 
 .button-adicionar:hover{
-    color: #F3DCAF;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.button-cancelar{
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #E66C1F;
+    border-radius: 20px;
+    width: 450px;
+}
+
+.button-cancelar:hover{
     transform: scale(1.1);
     transition: 0.3s;
 }
