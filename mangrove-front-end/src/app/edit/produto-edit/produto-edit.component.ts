@@ -70,5 +70,13 @@ export class ProdutoEditComponent implements OnInit {
     })
 }
 
+cadastrarCategoria(){
+  this.categoriasService.postCategorias(this.categoria).subscribe((resp:CategoriaModel)=>{
+    this.categoria=resp
+    this.alertas.showAlertSuccess('Categoria cadastrada com sucesso!')
+    this.findAllCategorias()
+    this.categoria= new CategoriaModel()      
+  })
+}
 
 }
