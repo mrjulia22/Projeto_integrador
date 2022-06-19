@@ -11,7 +11,7 @@ import { ProdutoDeleteComponent } from './delete/produto-delete/produto-delete.c
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
 import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
-import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
+//import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { EntrarComponent } from './entrar/entrar.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
@@ -31,11 +31,11 @@ const routes: Routes = [
   {path: 'produto-edit/:id', component: ProdutoEditComponent},
   {path: 'produto',component: ProdutoComponent},
   {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent},
-  {path: 'detalhe-produto', component: DetalheProdutoComponent},
+  {path: 'detalhe-produto/:id', component: DetalheProdutoComponent},
   {path: 'buscar-produtos', component:BuscarProdutosComponent},
   {path: 'componente-raizes', component: ComponenteRaizesComponent},
   {path: 'componente-sobre-nos', component: ComponentSobreNosComponent},
-  {path: 'usuario-edit/:id', component: UsuarioEditComponent}
+  //{path: 'usuario-edit/:id', component: UsuarioEditComponent}
 ];
 
 @NgModule({
