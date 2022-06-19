@@ -4,6 +4,7 @@ import { UsuarioLoginModel } from '../model/UsuarioLoginModel';
 import { Observable } from 'rxjs';
 import { UsuariosModel } from '../model/UsuariosModel';
 import { environment } from 'src/environments/environment.prod';
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,10 @@ export class AuthService {
   }
   cadastrar(usuarioModel:UsuariosModel): Observable<UsuariosModel>{
     return this.http.post<UsuariosModel>('https://mangroveprojeto.herokuapp.com/usuarios/cadastrar', usuarioModel)
+  }
+
+  edit(usuarioModel:UsuariosModel): Observable<UsuariosModel>{
+    return this.http.post<UsuariosModel>('https://mangroveprojeto.herokuapp.com/usuarios/edit' , usuarioModel)
   }
 
   getByIdUser(id: number): Observable<UsuariosModel>{

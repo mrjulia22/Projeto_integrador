@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'produto-edit/:id', component: ProdutoEditComponent},
   {path: 'produto',component: ProdutoComponent},
   {path: 'buscar-categoria/:id', component: BuscarCategoriaComponent},
-  {path: 'detalhe-produto', component: DetalheProdutoComponent},
+  {path: 'detalhe-produto/:id', component: DetalheProdutoComponent},
   {path: 'buscar-produtos', component:BuscarProdutosComponent},
   {path: 'componente-raizes', component: ComponenteRaizesComponent},
   {path: 'componente-sobre-nos', component: ComponentSobreNosComponent},

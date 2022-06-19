@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { CategoriaModel } from '../model/CategoriaModel';
+import { AuthService } from '../service/auth.service';
 import { CategoriasService } from '../service/categorias.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class MenuComponent implements OnInit {
 
   nome = environment.nomeUsuario
   foto = environment.fotoUsuario
+  id = environment.id
 
   listaCategorias: CategoriaModel[] 
   categoria: CategoriaModel = new CategoriaModel()
@@ -21,6 +23,8 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
     private categoriaService: CategoriasService,
+    private auth: AuthService
+
   ) { }
 
   ngOnInit() {

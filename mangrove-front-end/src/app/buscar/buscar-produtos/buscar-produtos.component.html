@@ -51,9 +51,7 @@
               class="btn botao-cor-especial border-r px-4 py-0 m-0 mb-3"
             >Adicionar ao Carrinho
             </button>
-            <button class="btn botao-cor-compra border-r px-4 py-0 mb-3" routerLink="/detalhe-produto">
-              Ver mais
-            </button>
+            <button class="btn botao-cor-compra border-r px-4 py-0 mb-3" [routerLink]="['/detalhe-produto', produto.id]">Ver mais</button>
           </div>
           <div *ngIf="administrador()">
             <button class="btn btn-info mr-2"  [routerLink]="['/produto-edit', produto.id]">Editar</button>
