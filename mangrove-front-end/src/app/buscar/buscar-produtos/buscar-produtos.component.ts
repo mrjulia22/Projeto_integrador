@@ -21,6 +21,9 @@ export class BuscarProdutosComponent implements OnInit {
   nomeProduto: string
   nomeCategoria: string
 
+  key: string
+  reverse: boolean
+
   constructor(
     private produtosService: ProdutosService,
     private categoriasService: CategoriasService,
@@ -28,11 +31,22 @@ export class BuscarProdutosComponent implements OnInit {
   ) { }
 
   ngOnInit(){
-    if(environment.tokenUsuario == ""){
-      //alert("Sessão encerrada! Faça login novamente.")
-      this.router.navigate(["/entrar"])
-    }
+    // if(environment.tokenUsuario == ""){
+    //   //alert("Sessão encerrada! Faça login novamente.")
+    //   this.router.navigate(["/entrar"])
+    // }
     this.findAllProdutos()
+  }
+
+  opcaoKey(event: any){
+    let keyOp = event.target.value
+
+    if(keyOp == 1 ){
+      this.key = 'nomeProduto'
+    } else if(keyOp == 2){
+      this.key = 'valorProduto'
+    }
+      
   }
 
   categoriaSelecionada(event: any){
@@ -72,4 +86,11 @@ export class BuscarProdutosComponent implements OnInit {
     }  
   }  
 
+  administrador () {
+    let ok: boolean = false;
+    if (environment.tipoUsuario == 'adm') {
+      ok = true
+    }
+    return ok
+  }
 }

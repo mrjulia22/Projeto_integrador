@@ -6,6 +6,7 @@ import { AuthService } from '../service/auth.service';
 import { CategoriasService } from '../service/categorias.service';
 import { ProdutosService } from '../service/produtos.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-produto',
@@ -13,48 +14,62 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./produto.component.css']
 })
 export class ProdutoComponent implements OnInit {
-  listaCategorias: CategoriaModel[];
-  listaProdutos: ProdutosModel[];
-  produto: ProdutosModel;
-  idProd: number
-
+  categoria: CategoriaModel = new CategoriaModel()
+  listaCategorias: CategoriaModel[]
+ 
+  produto: ProdutosModel = new ProdutosModel()
+  listaProdutos: ProdutosModel[]
+  nomeProduto: string
+  nomeCategoria: string
+ 
   constructor(
-    public auth: AuthService,
-    private produt: ProdutosService,
-    private categoria: CategoriasService,
-    private router: Router,
-  
+    private produtosService: ProdutosService,
+    private categoriasService: CategoriasService,
+    private router: Router
   ) { }
-
-  ngOnInit() {
-    
-    window.scroll(0, 0);
-
-    this.getAllCategorias();
-    this.getAllProdutos();
-
+ 
+  ngOnInit(){
+    // if(environment.tokenUsuario == ""){
+    //   //alert("Sessão encerrada! Faça login novamente.")
+    //   this.router.navigate(["/entrar"])
+    // }
+    this.findAllProdutos()
   }
-
-  getAllCategorias() {
-    this.categoria.getAllCategorias().subscribe((resp: CategoriaModel[]) => {
-      this.listaCategorias = resp;
-      
-    });
+ 
+  categoriaSelecionada(event: any){
+    this.categoria = event.target.value
   }
-
-  getAllProdutos() {
-    this.produt.getAllProdutos().subscribe((resp: ProdutosModel[]) => {
-      this.listaProdutos = resp;
-    
-    });
+  
+  findAllProdutos(){
+    this.produtosService.getAllProdutos().subscribe((resp: ProdutosModel[])=>{
+      this.listaProdutos = resp
+    })
   }
-
-  getProdById(id: number){
-    this.produt.getByIdProdutos(id).subscribe((resp: ProdutosModel) =>{
-      this.produto = resp;
-      // this.desconto();
-      // this.parcela();
+ 
+  findAllCategorias(){
+    this.categoriasService.getAllCategorias().subscribe((resp: CategoriaModel[])=>{
+      this.listaCategorias = resp
     })
   }
   
+  findByNomeCategoria(){
+    if(this.nomeCategoria ==''){
+      this.findAllCategorias()
+    } else{
+      this.categoriasService.getByNomeCategoria(this.nomeCategoria).subscribe((resp: CategoriaModel[]) =>{
+        this.listaCategorias=resp
+      })
+    }
+  }
+ 
+  findByNomeProduto(){
+ 
+    if(this.nomeProduto ==''){
+      this.findAllProdutos()
+    } else{
+      this.produtosService.getByNomeProduto(this.nomeProduto).subscribe((resp: ProdutosModel[]) => {
+        this.listaProdutos = resp
+      })
+    }  
+  }  
 }

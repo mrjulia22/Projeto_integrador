@@ -20,15 +20,15 @@ export class ProdutosService {
     headers: new HttpHeaders().set('Authorization',environment.tokenUsuario)
   }
   getAllProdutos(): Observable<ProdutosModel[]>{
-    return this.http.get<ProdutosModel[]>('https://mangroveprojeto.herokuapp.com/produtos/all', this.tokenUsuario)
+    return this.http.get<ProdutosModel[]>('https://mangroveprojeto.herokuapp.com/produtos/all')
   }
 
   getByIdProdutos(id: number): Observable<ProdutosModel>{
-    return this.http.get<ProdutosModel>(`https://mangroveprojeto.herokuapp.com/produtos/${id}`, this.tokenUsuario)
+    return this.http.get<ProdutosModel>(`https://mangroveprojeto.herokuapp.com/produtos/${id}`)
   }
 
   getByNomeProduto(nomeProduto: string): Observable<ProdutosModel[]>{
-    return this.http.get<ProdutosModel[]>(`https://mangroveprojeto.herokuapp.com/produtos/nome/${nomeProduto}`, this.tokenUsuario)
+    return this.http.get<ProdutosModel[]>(`https://mangroveprojeto.herokuapp.com/produtos/nome/${nomeProduto}`)
   }
 
   postProdutos(produto: ProdutosModel): Observable<ProdutosModel>{

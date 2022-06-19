@@ -26,6 +26,7 @@ import { BuscarCategoriaComponent } from './buscar/buscar-categoria/buscar-categ
 import { DetalheProdutoComponent } from './detalhe-produto/detalhe-produto.component';
 import { BuscarProdutosComponent } from './buscar/buscar-produtos/buscar-produtos.component';
 import { ComponenteRaizesComponent } from './componente-raizes/componente-raizes.component';
+import { ComponentSobreNosComponent } from './component-sobre-nos/component-sobre-nos.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ComponenteRaizesComponent } from './componente-raizes/componente-raizes
     DetalheProdutoComponent,
     BuscarProdutosComponent,
     ComponenteRaizesComponent,
-    ComponenteRaizesComponent
+    ComponenteRaizesComponent,
+    ComponentSobreNosComponent
   ],
   imports: [
     BrowserModule,

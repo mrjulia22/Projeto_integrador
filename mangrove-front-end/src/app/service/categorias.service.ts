@@ -19,27 +19,27 @@ export class CategoriasService {
   }
  
   getAllCategorias(): Observable<CategoriaModel[]>{
-    return this.http.get<CategoriaModel[]>('https://mangroveprojeto.herokuapp.com/categorias/all', this.tokenUsuario)
+    return this.http.get<CategoriaModel[]>('https://mangroveprojeto.herokuapp.com/categorias/all')
   }
 
   getByIdCategorias(id: number): Observable<CategoriaModel>{
-    return this.http.get<CategoriaModel>(`https://mangroveprojeto.herokuapp.com/categorias/${id}`, this.tokenUsuario)
+    return this.http.get<CategoriaModel>(`https://mangroveprojeto.herokuapp.com/categorias/${id}`)
   }
 
   getByNomeCategoria(nomeCategoria: string): Observable<CategoriaModel[]>{
-    return this.http.get<CategoriaModel[]>(`https://mangroveprojeto.herokuapp.com/categorias/nome/${nomeCategoria}`, this.tokenUsuario)
+    return this.http.get<CategoriaModel[]>(`https://mangroveprojeto.herokuapp.com/categorias/nome/${nomeCategoria}`)
   }
 
   postCategorias(categoria: CategoriaModel): Observable<CategoriaModel>{
-    return this.http.post<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/cadastrar', categoria, this.tokenUsuario)
+    return this.http.post<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/cadastrar', categoria)
   }
 
   putCategorias(categoria: CategoriaModel): Observable<CategoriaModel>{
-    return this.http.put<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/atualizar', categoria, this.tokenUsuario)
+    return this.http.put<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/atualizar', categoria)
   }
 
   deleteCatagorias(id: number){
-    return this.http.delete(`https://mangroveprojeto.herokuapp.com/categorias/${id}`, this.tokenUsuario)
+    return this.http.delete(`https://mangroveprojeto.herokuapp.com/categorias/${id}`)
   }
 
 }

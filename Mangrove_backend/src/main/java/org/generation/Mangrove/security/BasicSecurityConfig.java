@@ -45,6 +45,10 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			.antMatchers("/usuarios/logar").permitAll()
 			.antMatchers("/usuarios/cadastrar").permitAll()
+			.antMatchers(HttpMethod.GET, "/categorias").permitAll()
+			.antMatchers(HttpMethod.GET, "/produtos").permitAll()
+			.antMatchers(HttpMethod.GET, "/produtos/**").permitAll()
+			.antMatchers(HttpMethod.GET, "/categorias/**").permitAll()
 			.antMatchers(HttpMethod.OPTIONS).permitAll()
 			.anyRequest().authenticated()
 			.and().httpBasic()
@@ -53,14 +57,5 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 			.and().csrf().disable();
 			
 	}
-
-	public UserDetailsService getUserDetailsService() {
-		return userDetailsService;
-	}
-
-	public void setUserDetailsService(UserDetailsService userDetailsService) {
-		this.userDetailsService = userDetailsService;
-	}
-	 
 
 }

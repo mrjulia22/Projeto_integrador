@@ -11,3 +11,62 @@
     padding: 20px; 
     background-color: #E66C1F;
 }
+
+.footer-links{
+    display: flex;
+    align-items: center;
+    background-color: #ADAC33;
+    padding: 50px 150px;
+    justify-content: space-between;
+ }
+
+ .links{
+    text-align: right;
+    height: 270px;
+ }
+
+ .links-gerais{
+     display: flex;
+     gap: 50px;
+ }
+
+ .links-gerais ul li{
+     list-style: none;
+ }
+
+ .links-gerais a,p{
+    color: rgba(0,0,0,.75);
+    margin-bottom: 0;
+ }
+
+ .links-gerais h5{
+     margin-left: 35px;
+     font-weight: bold;
+     text-transform: uppercase;
+     color: black;
+ }
+
+ .links-contatos{
+     margin-top: 100px;
+ }
+
+ .fa{
+    color: black;
+    font-size: 50px;
+    margin-left: 20px;
+ }
+
+ .fa:hover{
+     transform: scale(1.1);
+     translate: 0.3s;
+
+ }
+
+ .footer-copyright{
+    background-color: #FBC107;
+    padding: 10px;
+    text-align: center;
+ }
+ .titulo-copyright{
+     font-weight: bold;
+ }
