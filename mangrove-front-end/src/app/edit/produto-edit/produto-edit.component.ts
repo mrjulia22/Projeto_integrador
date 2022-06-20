@@ -23,8 +23,7 @@ export class ProdutoEditComponent implements OnInit {
   listCategorias: CategoriaModel[]
   idCategoria: number
 
-  usuario: UsuariosModel = new UsuariosModel()
-  idUsuario= environment.id
+
 
 
   constructor(
@@ -76,13 +75,13 @@ export class ProdutoEditComponent implements OnInit {
     this.categoria.id=this.idCategoria
     this.produto.categoria=this.categoria
 
-    this.usuario.id = this.idUsuario
-    this.produto.usuario = this.usuario
+    // this.usuario.id = this.idUsuario
+    // this.produto.usuario = this.usuario
     
     this.produtosService.putProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
       this.produto = resp
       this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
-      this.router.navigate(['/produto'])
+      this.router.navigate(['/home'])
       this.findAllProduto()
     })
 }
