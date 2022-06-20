@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { CategoriaModel } from '../model/CategoriaModel';
+import { ProdutosModel } from '../model/ProdutosModel';
 import { AuthService } from '../service/auth.service';
 import { CategoriasService } from '../service/categorias.service';
 
@@ -19,6 +20,8 @@ export class MenuComponent implements OnInit {
   listaCategorias: CategoriaModel[] 
   categoria: CategoriaModel = new CategoriaModel()
   idCategoria: number
+
+  produto: ProdutosModel = new ProdutosModel()
 
   constructor(
     private router: Router,

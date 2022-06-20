@@ -31,11 +31,11 @@ export class CategoriasService {
   }
 
   postCategorias(categoria: CategoriaModel): Observable<CategoriaModel>{
-    return this.http.post<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/cadastrar', categoria)
+    return this.http.post<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/cadastrar', categoria, this.tokenUsuario)
   }
 
   putCategorias(categoria: CategoriaModel): Observable<CategoriaModel>{
-    return this.http.put<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/atualizar', categoria)
+    return this.http.put<CategoriaModel>('https://mangroveprojeto.herokuapp.com/categorias/atualizar', categoria, this.tokenUsuario)
   }
 
   deleteCatagorias(id: number){

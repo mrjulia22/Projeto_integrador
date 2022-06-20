@@ -91,7 +91,7 @@ cadastrarCategoria(){
     this.categoria=resp
     this.alertas.showAlertSuccess('Categoria cadastrada com sucesso!')
     this.findAllCategorias()
-    this.categoria= new CategoriaModel()      
+    this.categoria = new CategoriaModel()
   })
 }
 }
