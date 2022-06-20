@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { CarrinhoComprasComponent } from './carrinho-compras/carrinho-compras.component';
 
 
 const routes: Routes = [
@@ -35,8 +36,8 @@ const routes: Routes = [
   {path: 'buscar-produtos', component:BuscarProdutosComponent},
   {path: 'componente-raizes', component: ComponenteRaizesComponent},
   {path: 'componente-sobre-nos', component: ComponentSobreNosComponent},
-  {path: 'usuario-edit/:id', component: UsuarioEditComponent}
-  
+  {path: 'usuario-edit/:id', component: UsuarioEditComponent},
+  {path: 'carrinho-compras', component: CarrinhoComprasComponent}
 ];
 
 @NgModule({
