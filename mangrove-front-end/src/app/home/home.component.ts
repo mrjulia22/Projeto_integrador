@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit {
   listaProdutos: ProdutosModel[]
   nomeProduto: string
 
-  // usuario: UsuariosModel = new UsuariosModel()
+  //  usuario: UsuariosModel = new UsuariosModel()
   // idUsuario = environment.id
-  // nome = environment.nomeUsuario
+  //  nome = environment.nomeUsuario
 
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
@@ -41,14 +41,13 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // if(environment.tokenUsuario == ""){
-    //   //alert("Sessão encerrada! Faça login novamente.")
-    //   this.router.navigate(["/entrar"])
+    //  if(environment.tokenUsuario == ""){
+    // alert("Sessão encerrada! Faça login novamente.")
+    //    this.router.navigate(["/entrar"])
     // }
-    // this.authService.refreshToken()
+    //  this.authService.refreshToken()
     this.findAllCategorias()
     this.findAllProdutos()
-    //this.authService.refreshToken() 
 }
 
   findAllCategorias(){
@@ -103,4 +102,5 @@ administrador () {
   }
   return ok
 }
+
 }

@@ -25,3 +25,11 @@
     max-width: 18rem;
     border-radius: 10px;
 }
+
+.botao-cadastrar{
+    background-color: #ADAC33;
+    color: white;
+    border-color:  #ADAC33; 
+    border-radius: 30px ;
+    padding: 5px 20px 5px 20px;
+}
