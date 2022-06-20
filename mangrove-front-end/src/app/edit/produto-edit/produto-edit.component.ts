@@ -78,7 +78,7 @@ export class ProdutoEditComponent implements OnInit {
   atualizar(){
     this.categoria.id=this.idCategoria
     this.produto.categoria=this.categoria
- 
+
     this.usuario.id = this.idUsuario
     this.produto.usuario = this.usuario
     
