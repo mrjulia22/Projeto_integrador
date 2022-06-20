@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit {
   listaProdutos: ProdutosModel[]
   nomeProduto: string
 
-  //  usuario: UsuariosModel = new UsuariosModel()
-  // idUsuario = environment.id
-  //  nome = environment.nomeUsuario
+   usuario: UsuariosModel = new UsuariosModel()
+  idUsuario = environment.id
+   nome = environment.nomeUsuario
 
   categoria: CategoriaModel = new CategoriaModel()
   listaCategorias: CategoriaModel[]
@@ -31,6 +31,8 @@ export class HomeComponent implements OnInit {
   
   key = 'data'
   reverse = true
+
+  id = environment.id
 
   constructor(
     private router: Router,
@@ -68,11 +70,11 @@ findAllProdutos(){
   })
 }
 
-// findByIdUsuario(){
-//   this.authService.getByIdUser(this.idUsuario).subscribe((resp: UsuariosModel)=>{
-//     this.usuario = resp
-//   })
-// }
+findByIdUsuario(){
+  this.authService.getByIdUser(this.idUsuario).subscribe((resp: UsuariosModel)=>{
+    this.usuario = resp
+  })
+}
 
 findByNomeProduto(){
 
