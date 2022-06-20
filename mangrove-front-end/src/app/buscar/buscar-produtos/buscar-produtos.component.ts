@@ -27,7 +27,8 @@ export class BuscarProdutosComponent implements OnInit {
   constructor(
     private produtosService: ProdutosService,
     private categoriasService: CategoriasService,
-    private router: Router
+    private router: Router,
+    
   ) { }
 
   ngOnInit(){
@@ -93,4 +94,5 @@ export class BuscarProdutosComponent implements OnInit {
     }
     return ok
   }
+
 }
