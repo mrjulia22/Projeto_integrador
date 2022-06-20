@@ -8,6 +8,7 @@ import { ProdutosService } from '../service/produtos.service';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { environment } from 'src/environments/environment.prod';
 import { AlertasService } from '../service/alertas.service';
+import { UsuariosModel } from '../model/UsuariosModel';
 
 @Component({
   selector: 'app-produto',
@@ -16,9 +17,14 @@ import { AlertasService } from '../service/alertas.service';
 })
 export class ProdutoComponent implements OnInit {
   produto: ProdutosModel = new ProdutosModel()
+  listaProdutos: ProdutosModel[]
+
   categoria: CategoriaModel= new CategoriaModel()
   listCategorias: CategoriaModel[]
   idCategoria: number
+
+  usuario: UsuariosModel= new UsuariosModel()
+  idUsuario = environment.id
 
   constructor(
     private router: Router,
@@ -58,14 +64,25 @@ export class ProdutoComponent implements OnInit {
   })
   }
 
+  findAllProduto(){
+    this.produtosService.getAllProdutos().subscribe((resp: ProdutosModel[])=>{
+      this.listaProdutos=resp
+    })
+  }
+
   cadastrar(){
     this.categoria.id=this.idCategoria
     this.produto.categoria=this.categoria
+
+    this.usuario.id = this.idUsuario
+
+    this.produto.usuario = this.usuario
     
     this.produtosService.postProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
       this.produto = resp
       this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
-      this.router.navigate(['/home'])
+      this.router.navigate(['/buscar-produtos'])
+      this.findAllProduto()
     })
 }
 
