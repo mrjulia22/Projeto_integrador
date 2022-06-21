@@ -19,3 +19,24 @@ html {
 .border-r{
     border-radius: 50px 50px 50px 50px;
 }
+
+:root {
+    --main-color: #ADAC33;
+    --primary-color: #E66C1F;
+    --secondary-color: #F3DCAF;
+    --success-color: #ADAC33;
+    --danger-color: #C4C4C4;
+    --info-color: #E66C1F;
+  }
+
+.color-button-cancelar{
+    color: var(--danger-color);
+}
+
+.color-button-success{
+    color: var(--success-color);
+}
+
+.color-button-info{
+    color: var(--info-color);
+}
