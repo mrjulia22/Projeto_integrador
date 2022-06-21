@@ -2,7 +2,7 @@
 
     <nav *ngIf="administrador()" class="navbar navbar-expand-lg navbar-light navbar-custom-adm d-flex justify-content-around">
 
-        <div class="container-fluid">
+        <div class="container-fluid" *ngIf="logado()">
             <div class="pt-3 px-5">
             <p class="navbar-brand">Área administrador</p>
             </div>

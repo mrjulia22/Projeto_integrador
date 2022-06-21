@@ -33,13 +33,13 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
     this.findAllCategorias()
-    }
-    
+  }   
 
 
   sair(){
-    this.router.navigate(['/entrar'])
+    this.router.navigate(['/home'])
     environment.tokenUsuario = ''
     environment.nomeUsuario = ''
     environment.fotoUsuario = ''
@@ -81,10 +81,12 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  administrador () {
+  administrador() {
     let ok: boolean = false;
-    if (environment.tipoUsuario == 'adm') {
-      ok = true
+    if(this.logado()){
+      if (environment.tipoUsuario == 'adm') {
+        ok = true
+      }
     }
     return ok
   }
