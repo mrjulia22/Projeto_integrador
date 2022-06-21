@@ -62,10 +62,10 @@
                             <li *ngFor="let categoria of listaCategorias">
                                 <a class="dropdown-item dropdown-item-custom" [routerLink]="['/buscar-categoria', categoria.id]">{{categoria.nomeCategoria}}</a> 
                             </li>   
-                            <li *ngIf="administrador()" ><hr class="dropdown-divider"></li>
+                           <!----  <li *ngIf="administrador()" ><hr class="dropdown-divider"></li>
                             <li>
-                                <a *ngIf="administrador()" class="dropdown-item dropdown-item-custom" routerLink="/categoria">Editar/Adicionar categorias</a>
-                            </li>
+                                  <a *ngIf="administrador()" class="dropdown-item dropdown-item-custom" routerLink="/categoria">Editar/Adicionar categorias</a>
+                            </li> -->
 
                         </ul>
                     </li>
