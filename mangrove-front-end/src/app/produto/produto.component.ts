@@ -40,18 +40,11 @@ export class ProdutoComponent implements OnInit {
       alert('Sua sessão expirou faça o login novamente.')
       this.router.navigate(['/entrar'])
   }
-    let id = this.route.snapshot.params['id']
-    this.findByIdProdutos(id)
+    this.categoriasService.refreshToken()
     this.findAllCategorias()
 
 }
 
-  findByIdProdutos(id: number){
-  this.produtosService.getByIdProdutos(id).subscribe((resp: ProdutosModel)=>{
-    this.produto = resp
-  })
-
-  }
   findByIdCategorias(){
     this.categoriasService.getByIdCategorias(this.idCategoria).subscribe((resp:CategoriaModel)=>{
       this.categoria = resp

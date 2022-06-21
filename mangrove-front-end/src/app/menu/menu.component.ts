@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { CategoriaModel } from '../model/CategoriaModel';
 import { ProdutosModel } from '../model/ProdutosModel';
+import { UsuariosModel } from '../model/UsuariosModel';
 import { AuthService } from '../service/auth.service';
 import { CategoriasService } from '../service/categorias.service';
 
@@ -13,9 +14,10 @@ import { CategoriasService } from '../service/categorias.service';
 })
 export class MenuComponent implements OnInit {
 
-  nome = environment.nomeUsuario
-  foto = environment.fotoUsuario
-  id = environment.id
+
+  id: number
+
+  usuario: UsuariosModel = new UsuariosModel()
 
   listaCategorias: CategoriaModel[] 
   categoria: CategoriaModel = new CategoriaModel()
@@ -26,13 +28,14 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
     private categoriaService: CategoriasService,
-    private auth: AuthService
+    private auth: AuthService,
 
   ) { }
 
   ngOnInit() {
     this.findAllCategorias()
-  }
+    }
+    
 
 
   sair(){
@@ -55,10 +58,11 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  logado () {
+  logado() {
     let ok: boolean = false;
     if (environment.tokenUsuario != '') {
       ok = true
+      this.id = environment.id
     }
     return ok
   }
@@ -69,6 +73,12 @@ export class MenuComponent implements OnInit {
       ok = true
     }
     return ok
+  }
+
+  findByIdUsuario(){
+    this.auth.getByIdUser(this.id).subscribe((resp: UsuariosModel)=>{
+      this.usuario = resp
+    })
   }
 
   administrador () {
