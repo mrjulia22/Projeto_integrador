@@ -73,7 +73,7 @@ export class ProdutoComponent implements OnInit {
     
     this.produtosService.postProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
       this.produto = resp
-      this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
+      this.alertas.showAlertSuccess('Produto cadastrado com sucesso!')
       this.router.navigate(['/buscar-produtos'])
       this.findAllProduto()
     })
