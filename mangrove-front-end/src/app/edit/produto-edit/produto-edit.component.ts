@@ -83,7 +83,7 @@ export class ProdutoEditComponent implements OnInit {
     this.produtosService.putProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
       this.produto = resp
       this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
-      this.router.navigate(['/buscar-produto'])
+      this.router.navigate(['/buscar-produtos'])
       console.log(this.produto)
       console.log(environment.tokenUsuario)
     })
