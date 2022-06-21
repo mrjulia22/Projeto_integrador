@@ -17,6 +17,12 @@ export class CategoriasService {
   tokenUsuario = {
     headers: new HttpHeaders().set('Authorization',environment.tokenUsuario)
   }
+
+  refreshToken(){
+    this.tokenUsuario = {
+      headers: new HttpHeaders().set('Authorization', environment.tokenUsuario)
+    }
+  }
  
   getAllCategorias(): Observable<CategoriaModel[]>{
     return this.http.get<CategoriaModel[]>('https://mangroveprojeto.herokuapp.com/categorias/all')
@@ -39,7 +45,7 @@ export class CategoriasService {
   }
 
   deleteCatagorias(id: number){
-    return this.http.delete(`https://mangroveprojeto.herokuapp.com/categorias/${id}`)
+    return this.http.delete(`https://mangroveprojeto.herokuapp.com/categorias/${id}`, this.tokenUsuario)
   }
 
 }

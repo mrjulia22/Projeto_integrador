@@ -45,9 +45,7 @@ export class ProdutoEditComponent implements OnInit {
   }
     let id = this.route.snapshot.params['id']
     this.findByIdProdutos(id)
-    this.findAllCategorias()
-    this.authService.refreshToken()
- 
+    this.findAllCategorias() 
 }
  
   findByIdProdutos(id: number){
@@ -85,8 +83,7 @@ export class ProdutoEditComponent implements OnInit {
     this.produtosService.putProdutos(this.produto).subscribe((resp:ProdutosModel)=>{
       this.produto = resp
       this.alertas.showAlertSuccess('Produto atualizado com sucesso!')
-      this.router.navigate(['/home'])
-      this.findAllProduto()
+      this.router.navigate(['/buscar-produto'])
       console.log(this.produto)
       console.log(environment.tokenUsuario)
     })
