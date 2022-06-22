@@ -46,7 +46,7 @@
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #45B264;
+    background-color: #ADAC33;
     border-radius: 20px;
     width: 450px;
     margin: 25px 0;
@@ -61,7 +61,7 @@
     color: white;
     font-weight: bold;
     text-transform: uppercase;
-    background-color: #E66C1F;
+    background-color: var(--danger-color);
     border-radius: 20px;
     width: 450px;
 }
